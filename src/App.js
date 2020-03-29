@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import submitSent from './utility/submitSend';
+
 import './App.sass';
 
 function App() {
+  // state to hold the input data before sending it to the backend
+  const [State, setState] = useState({
+    zip: "",
+    phone: ""
+  });
+  
+  const handleChange = event => {
+    setState({ ...State, [event.target.name]: event.target.value });
+};
+
   return (
     <div className="App" title="app">
       <header className="App-header">
@@ -14,20 +26,22 @@ function App() {
         <p>Instead of having to constantly to stress on searching for information about the Covid-19 Pandemic we will text you updates based on data coming straight from _____ </p>
       </div>
       <div className="inputs" >
-        <form>
-          <label>ZIP code</label><br/>
+        <form onSubmit={event =>  {event.preventDefault(); submitSent(State.zip, State.phone)}}>
+          <label htmlFor="zip">Zipcode</label><br/>
           <input
-            label="Zipcode"
-            placeholder="Please enter zipcode"
+            placeholder="please enter zipcode"
             name="zip"
+            onChange={handleChange}
+            type="text"
             /><br/>
-          <label>Phone Number</label><br/>
+          <label htmlFor="phone">Phone Number</label><br/>
           <input
-            label="Phone Number"
             placeholder="please enter phone number"
             name="phone"
+            onChange={handleChange}
+            type="text"
             /><br />
-          <button type="submit" className="submitButton">Subscribe</button>
+          <button type="submit" className="submitButton" data-testid="subscribe" >Subscribe</button>
         </form>
       </div>
     </div>
