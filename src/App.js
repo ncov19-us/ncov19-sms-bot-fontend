@@ -34,14 +34,16 @@ function App() {
             onChange={handleChange}
             type="text"
             pattern="(^\d{5}$)|(^\d{5}-\d{4}$)"
-            /><br/>
+            required/><br/>
           <label htmlFor="phone">Phone Number</label><br/>
           <input
             placeholder="please enter phone number"
             name="phone"
             onChange={handleChange}
             type="text"
-            /><br />
+            pattern="(^\d{10}$)|(^\d{11}$)"
+            required/><br />
+          <h6 style={{color: "white"}}>US phone numbers only</h6>
           <button type="submit" className="submitButton" data-testid="subscribe" >Subscribe</button>
         </form>
       </div>
