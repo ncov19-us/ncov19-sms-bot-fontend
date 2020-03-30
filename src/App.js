@@ -33,6 +33,7 @@ function App() {
             name="zip"
             onChange={handleChange}
             type="text"
+            pattern="(^\d{5}$)|(^\d{5}-\d{4}$)"
             /><br/>
           <label htmlFor="phone">Phone Number</label><br/>
           <input
