@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import submitSent from './utility/submitSend';
 
-import './App.sass';
+import './App.scss';
 
 function App() {
   // state to hold the input data before sending it to the backend
