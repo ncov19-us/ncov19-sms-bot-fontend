@@ -18,18 +18,23 @@ html {
     max-width: 1024px;
     margin-top: 3rem;
 
-    // @media (max-width: $phablet) {
-    //   flex-direction: column-reverse;
-    //   padding: 5%;
-    //   width: 67%;
-    //   background-color: green;
-    //   justify-content: center;
-    //   margin-top: 5%;
-    // }
+    @media (max-width: $phablet) {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 2%;
+      width: 67%;
+      // background-color: green;
+      justify-content: flex-end;
+      margin-top: 2%;
+    }
 
     .img-wrapper {
       width: 60%;
       // background-color: coral;
+
+      @media (max-width: $phablet) {
+        width: 100%;
+      }
 
       .phone {
         width: 100%;
@@ -37,7 +42,7 @@ html {
     }
 
     .form-wrapper {
-      width: 60%;
+      width: 100%;
       // background-color: cadetblue;
 
       .description {
