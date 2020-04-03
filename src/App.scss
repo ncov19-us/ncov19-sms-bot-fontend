@@ -1,79 +1,82 @@
+html {
+  background-color: #171E28;
+}
+
 .App {
   text-align: center;
-}
+  background: #171E28;
+  height: 100%;
+  
+  .App-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 53%;
+    height: 50vh;
+    max-width: 1024px;
+    margin-top: 3rem;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background: #12191F;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  min-height: calc(15px + 2vmin);
-
-}
-
-.App-link {
-  color: #61dafb; 
-}
-
-.mission {
-  color: white;
-  background: #12191F;
-  padding: 2vh;
-
-  p {
-    padding: .5% 20%;
-  }
-}
-
-.inputs {
-  padding: 1%;
-  background: #12191F;
-
-  label {
-    color: #c1c1c1;
-    text-align: left ;
-    max-width: 10%;
-  }
-
-  input {
-    color: #12191F;
-    min-width: 20vw;
-    margin: calc(10px + 2vmin);
+    .img-wrapper {
+      width: 35%;
+      
+      .phone {
+        width: 100%;
+      }
     }
-}
 
-.submitButton {
-  box-shadow: 3px 4px 0px 0px #cf866c;
-  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-  background-color: #d0451b;
-  border-radius: 5px;
-  border: 1px solid #942911;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: bold;
-  padding: 12px 44px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #854629;
+    .form-wrapper {
+      width: 50%;
 
+      .description {
+        margin-top: 0;
+        color: white;
+        text-align: left;
+        font-size: 2.2rem;
+      }
 
-  &:hover {
-    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-    background-color: #bc3315;
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+        background: #1F242D;
+        border-radius: 10px;
+
+        .form-input {
+          margin-top: 3rem;
+          border: none;
+          text-decoration: none;
+          text-align: left;
+          border-radius: 10px;
+          height: 60px;
+          width: 80%;
+          font-size: 2rem;
+          color: #1F242D;
+          padding-left: .5rem;
+        }
+
+        .btn-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          width: 100%;
+
+          .submit-btn {
+            margin: 3rem 0;
+            margin-left: 2.3rem;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            background: #F4B000;
+            height: 60px;
+            width: 67%;
+            font-size: 1.8rem;
+          }
+        }
+
+      }
+    }
   }
-
-  &:active {
-    position: relative;
-    top: 1px;
-  };
 }
