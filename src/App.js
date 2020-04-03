@@ -1,17 +1,27 @@
 import React, { useState } from "react";
-import submitSent from "./utility/submitSend";
+// import submitSent from "./utility/submitSend";
+import axios from "axios";
 
 import "./App.scss";
 
-function App() {
+const App = () => {
   // state to hold the input data before sending it to the backend
-  const [State, setState] = useState({
+  const [state, setState] = useState({
     zip: "",
     phone: ""
   });
 
   const handleChange = event => {
-    setState({ ...State, [event.target.name]: event.target.value });
+    setState({ ...state, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+      .then(alert("Thank you for subscribing"))
+      .catch(e => console.log("AN ERROR WHILE POSTING TO DATABASE", e));
   };
 
   return (
@@ -28,12 +38,7 @@ function App() {
         </p>
       </div>
       <div className="inputs">
-        <form
-          onSubmit={event => {
-            event.preventDefault();
-            submitSent(State.zip, State.phone);
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <label htmlFor="zip">Zipcode</label>
           <br />
           <input
@@ -68,6 +73,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
