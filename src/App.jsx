@@ -6,11 +6,11 @@ import axios from "axios";
 import "./App.scss";
 
 // image imports
-import Phone from './assets/phone.svg';
+import Phone from "./assets/phone.svg";
 
 // component imports
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   // state to hold the input data before sending it to the backend
@@ -41,13 +41,22 @@ const App = () => {
         </div>
         <div className="form-wrapper">
           <p className="description">
-            Tailored COVID-19 updates from your favorite messaging app.<br /><br />No sign-up required.
+            Get COVID-19 SMS updates for your county
+            <br />
           </p>
           <form>
-            <input type="phone" className="form-input" placeholder="ex. 555-555-5555" />
-            <input type="number" className="form-input" placeholder="ex. 90210" />
+            <input
+              type="phone"
+              className="form-input"
+              placeholder="ex. 555-555-5555"
+            />
+            <input
+              type="number"
+              className="form-input"
+              placeholder="ex. 90210"
+            />
             <div className="btn-wrapper">
-              <button className="submit-btn">Update Me</button>
+              <button className="submit-btn"> Update Me</button>
             </div>
           </form>
         </div>
