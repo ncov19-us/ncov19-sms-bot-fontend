@@ -6,7 +6,7 @@ html {
 
 .App {
   text-align: center;
-  background: blueviolet;
+  // background: blueviolet;
   height: 100%;
 
   .App-wrapper {
@@ -18,18 +18,18 @@ html {
     max-width: 1024px;
     margin-top: 3rem;
 
-    @media (max-width: $phablet) {
-      flex-direction: column-reverse;
-      padding: 5%;
-      width: 67%;
-      background-color: green;
-      justify-content: center;
-      margin-top: 5%;
-    }
+    // @media (max-width: $phablet) {
+    //   flex-direction: column-reverse;
+    //   padding: 5%;
+    //   width: 67%;
+    //   background-color: green;
+    //   justify-content: center;
+    //   margin-top: 5%;
+    // }
 
     .img-wrapper {
       width: 60%;
-      background-color: coral;
+      // background-color: coral;
 
       .phone {
         width: 100%;
@@ -38,7 +38,7 @@ html {
 
     .form-wrapper {
       width: 60%;
-      background-color: cadetblue;
+      // background-color: cadetblue;
 
       .description {
         margin-top: 0;
