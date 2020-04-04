@@ -38,15 +38,17 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="App-wrapper">
-        <div className="img-wrapper">
-          <img src={Phone} alt="phone demo of app" className="phone" />
-        </div>
         <div className="form-wrapper">
-          <p className="description">
-            Get COVID-19 SMS updates for your county
-            <br />
-          </p>
+          <div className="img-wrapper">
+            <img src={Phone} alt="phone demo of app" className="phone" />
+          </div>
           <form onSubmit={handleSubmit}>
+            <p className="description">
+              Get tailored COVID-19 SMS updates for your area.
+              <br />
+              <br />
+              No sign-up required.
+            </p>
             <input
               type="tel"
               className="form-input"
