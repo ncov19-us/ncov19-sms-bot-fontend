@@ -20,18 +20,20 @@ const App = () => {
   });
 
   const handleChange = event => {
-    setState({ ...state, [event.target.name]: event.target.value });
+    setState({ 
+      ...state, 
+      [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-      .then(alert("Thank you for subscribing"))
-      .catch(e => console.log("AN ERROR WHILE POSTING TO DATABASE", e));
+      .then(res => { console.log(res) })
+      .catch(err => { console.log(err) });
   };
-
+  console.log(state)
   return (
     <div className="App">
       <Header />
@@ -44,19 +46,25 @@ const App = () => {
             Get COVID-19 SMS updates for your county
             <br />
           </p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
-              type="phone"
+              type="tel"
               className="form-input"
               placeholder="ex. 555-555-5555"
+              name="phone"
+              onChange={handleChange}
+              value={state.phone}
             />
             <input
               type="number"
               className="form-input"
               placeholder="ex. 90210"
+              name="zip"
+              onChange={handleChange}
+              value={state.zip}
             />
             <div className="btn-wrapper">
-              <button className="submit-btn"> Update Me</button>
+              <button className="submit-btn">Update Me</button>
             </div>
           </form>
         </div>
