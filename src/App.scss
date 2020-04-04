@@ -79,7 +79,7 @@ $phablet: 750px;
           width: 80%;
         }
         .form-input {
-          margin-top: 2.2rem;
+          margin-bottom: 1.5rem;
           border: none;
           text-decoration: none;
           text-align: left;
@@ -94,22 +94,31 @@ $phablet: 750px;
         .btn-wrapper {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: left;
           text-align: center;
           width: 100%;
 
           .submit-btn {
-            margin: 3rem 0;
-            margin-left: 16.5%;
+            margin: 3rem 3rem;
+            margin-bottom: 0;
             padding: 0.2rem;
             border: none;
             border-radius: 5px;
             color: white;
             background: #f4b000;
             height: 2.5rem;
-            width: 67%;
+            width: 250px;
             font-size: 1.5rem;
+          }
+
+          .messages {
+            color: white;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1rem 3rem;
+            width: 400px;
           }
         }
       }
