@@ -49,7 +49,7 @@ const App = () => {
       }
     }
     axios
-      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state, { 'Content-Type': 'application/json' })
+      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
       .then(res => { 
         console.log('success')
         setStatus({
