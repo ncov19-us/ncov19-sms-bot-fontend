@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <div className='menubar'>
       <div className='tittle'>
-        <a href='#'>
+        <a href='https://ncov19-vacc-dash-front-end.now.sh/'>
           <h1 className='title-name'>COVID-19 Tracker</h1>
         </a>
       </div>
