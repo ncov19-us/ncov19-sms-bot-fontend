@@ -43,11 +43,6 @@ const App = () => {
       isLoading: true
     });
 
-    let axiosConfig = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
     axios
       .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
       .then(res => { 
