@@ -26,8 +26,15 @@ export default function Header() {
           <h1 className="title-name">COVID-19 Tracker</h1>
         </a>
       </div>
+      <nav className="menubar-links">
+        <a href="#" alt="mobile-sms" id="sms">
+          Get Mobile Updates
+        </a>
+        <a href="#">Vaccine Tracker</a>
+        <a href="#">About</a>
+      </nav>
 
-      <div className="mobile">
+      {/* <div className="mobile">
         <Modal trigger={<img src={burger} alt="menu-trigger" />} basic>
           <Modal.Content>
             <div
@@ -50,14 +57,7 @@ export default function Header() {
             </div>
           </Modal.Content>
         </Modal>
-      </div>
-      <div className="menubar-links">
-        <a href="#" alt="mobile-sms" id="sms">
-          Get Mobile Updates
-        </a>
-        <a href="#">Vaccine Tracker</a>
-        <a href="#">About</a>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,12 +1,14 @@
 $phablet: 650px;
 
 html {
-  background-color: #171e28;
+  // background-color: #171e28;
+  // background-color: red;
 }
 
 .App {
-  text-align: center;
+  // text-align: center;
   // background: blueviolet;
+  // height: 90vh;
 
   @media (max-width: $phablet) {
     height: 100%;
@@ -17,10 +19,11 @@ html {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    width: 66%;
-    height: 50vh;
+    // width: 66%;
     max-width: 1024px;
     margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 2px solid red;
 
     @media (max-width: $phablet) {
       flex-direction: column-reverse;
@@ -34,8 +37,8 @@ html {
 
     .img-wrapper {
       width: 50%;
-
-      // background-color: coral;
+      text-align: left;
+      border: 2px solid red;
 
       @media (max-width: $phablet) {
         width: 70%;
@@ -43,11 +46,13 @@ html {
       }
 
       .phone {
-        width: 80%;
+        max-width: 50%;
+        height: auto;
       }
     }
 
     .form-wrapper {
+
       width: 50%;
       // background-color: cadetblue;
       @media (max-width: $phablet) {
@@ -57,9 +62,13 @@ html {
       .description {
         margin-top: 0;
         color: white;
-        text-align: center;
+        text-align: left;
         font-size: 1.5rem;
-        width: 100%;
+        // width: 100%;
+
+        .description-secondary-text {
+          margin-top: 100px; 
+        }
       }
 
       form {

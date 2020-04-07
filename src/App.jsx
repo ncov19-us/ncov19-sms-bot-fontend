@@ -6,7 +6,7 @@ import axios from "axios";
 import "./App.scss";
 
 // image imports
-import Phone from "./assets/phone.svg";
+import Phone from "./assets/mobile_image.png";
 
 // component imports
 import Header from "./components/Header/Header";
@@ -35,33 +35,36 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <div className="App-wrapper">
-        <div className="img-wrapper">
-          <img src={Phone} alt="phone demo of app" className="phone" />
+      {/* <div>
+        <div className="App-wrapper">
+          <div className="img-wrapper">
+            <img src={Phone} alt="phone demo of app" className="phone" />
+          </div>
+          <div className="form-wrapper">
+            <p className="description">
+              Get Tailored COVID-19 updates delivered to your mobile
+              <br />
+              <span className="description-secondary-text">No sign-up required, just text your zipcode to the same number</span>
+            </p>
+            <form>
+              <input
+                type="phone"
+                className="form-input"
+                placeholder="ex. 555-555-5555"
+              />
+              <input
+                type="number"
+                className="form-input"
+                placeholder="ex. 90210"
+              />
+              <div className="btn-wrapper">
+                <button className="submit-btn"> Update Me</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="form-wrapper">
-          <p className="description">
-            Get COVID-19 SMS updates for your county
-            <br />
-          </p>
-          <form>
-            <input
-              type="phone"
-              className="form-input"
-              placeholder="ex. 555-555-5555"
-            />
-            <input
-              type="number"
-              className="form-input"
-              placeholder="ex. 90210"
-            />
-            <div className="btn-wrapper">
-              <button className="submit-btn"> Update Me</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <Footer />
+      </div> */}
+      {/* <Footer /> */}
     </div>
   );
 };

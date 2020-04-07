@@ -21,27 +21,24 @@ Media Queries for usage
     justify-content : flex-start
     flex-direction : row
 */
-@mixin flex($content, $direction) {
-	display: flex;
-	justify-content: $content;
-	flex-direction: $direction;
-}
+// @mixin flex($content, $direction) {
+// 	display: flex;
+// 	justify-content: $content;
+// 	flex-direction: $direction;
+// }
 
 // Header Menu
 .menubar {
-	@include flex(space-around, row);
+
 	background: #010915;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	// position: fixed;
-	// top: 0;
-	width: 100%;
 	color: #f4f4f4;
+	display: flex;
+	justify-content: space-between;
 
 	.tittle {
-		width: 100%;
-		text-align: left;
-		margin-left: 3%;
-		padding: 16.5px 0;
+		// border: 2px solid red;
+		padding: 1.5rem 0 1.5rem 2rem;
+
 		a {
 			color: white;
 			.title-name {
@@ -49,11 +46,15 @@ Media Queries for usage
 			}
 		}
 	}
+
 	.menubar-links {
-		@include flex(flex-end, row);
-		width: 100%;
-		margin: auto;
-		margin-right: 3%;
+		// border: 2px solid red;
+		width: 40%;
+		display: flex;
+		justify-content: space-between;
+		padding-right: 2rem;
+		align-items: center;
+
 		#sms {
 			border: 1px solid white;
 			border-radius: 4px;
@@ -69,27 +70,27 @@ Media Queries for usage
 			font-size: 1.05rem;
 		}
 	}
-	.mobile {
-		display: none;
-	}
-	@media #{$mobile} {
-		.title {
-			font-size: 1.5rem;
-		}
-		.menubar-links {
-			display: none;
-		}
-		.mobile {
-			display: block;
-			margin: auto;
-			padding-right: 10px;
-			img {
-				filter: invert(100%);
-				background: white;
-				width: 40px;
-			}
-		}
-	}
+	// .mobile {
+	// 	display: none;
+	// }
+	// @media #{$mobile} {
+	// 	.title {
+	// 		font-size: 1.5rem;
+	// 	}
+	// 	.menubar-links {
+	// 		display: none;
+	// 	}
+	// 	.mobile {
+	// 		display: block;
+	// 		margin: auto;
+	// 		padding-right: 10px;
+	// 		img {
+	// 			filter: invert(100%);
+	// 			background: white;
+	// 			width: 40px;
+	// 		}
+	// 	}
+	// }
 }
 
 // Vaccine Dashboard's header info
@@ -109,7 +110,7 @@ Media Queries for usage
 		}
 	}
 	.cards {
-		@include flex(space-between, row);
+		// @include flex(space-between, row);
 		.card {
 			border: 2px solid #dbbc6c;
 			padding: 2% 3%;
@@ -119,7 +120,7 @@ Media Queries for usage
 				color: #f4b000;
 			}
 			.stats {
-				@include flex(space-between, row);
+				// @include flex(space-between, row);
 				img {
 					padding-left: 6px;
 				}
@@ -127,9 +128,14 @@ Media Queries for usage
 		}
 	}
 }
+
+
+
+
+
 // foot
 .foot {
-	@include flex(space-around, row);
+	// @include flex(space-around, row);
 	background: #010915;
 	color: #bdbdbd;
 	padding: 1.5% 3%;
@@ -141,8 +147,9 @@ Media Queries for usage
 		font-size: 0.75rem;
 		margin: auto;
 	}
+
 	.foot-copyright {
-		@include flex(flex-end, row);
+		// @include flex(flex-end, row);
 		width: 30%;
 		font-size: 1.05rem;
 		margin: auto;
@@ -155,12 +162,12 @@ Media Queries for usage
 		}
 	}
 	@media #{$mobile} {
-		@include flex(center, column);
+		// @include flex(center, column);
 		padding: 2% 0;
 		.foot-copyright {
 			font-size: 1rem;
 			margin-top: 2%;
-			@include flex(center, row);
+			// @include flex(center, row);
 		}
 	}
 }
@@ -170,13 +177,13 @@ Media Queries for usage
 	background-color: $gunmetal;
 }
 
-body {
-	background-color: $gray-dark;
-}
+// body {
+// 	background-color: $gray-dark;
+// }
 
 .about {
 	.title {
-		@include flex(center, row);
+		// @include flex(center, row);
 		align-items: center;
 		background: url("../assets/virus-img.png");
 		background-repeat: no-repeat;
@@ -203,7 +210,7 @@ body {
 			height: 150px;
 		}
 		.cards {
-			@include flex(start, row);
+			// @include flex(start, row);
 			.card {
 				padding: 2% 3%;
 				width: 100%;
@@ -213,7 +220,7 @@ body {
 }
 
 .trial-headers {
-	@include flex(space-around, row);
+	// @include flex(space-around, row);
 	color: white;
 	h2 {
 		margin: auto;
