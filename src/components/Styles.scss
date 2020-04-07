@@ -26,8 +26,6 @@ Media Queries for usage
 	color: #f4f4f4;
 	display: flex;
 	justify-content: space-between;
-	position: absolute;
-	top: 0;
 	width: 100%;
 	height: 10vh;
 
@@ -41,6 +39,7 @@ Media Queries for usage
 		.title-link {
 
 			color: white;
+			text-decoration: none;
 
 			.title-name {
 				font-size: 2.2rem;
@@ -74,27 +73,27 @@ Media Queries for usage
 		}
 	}
 	
-	// .mobile {
-	// 	display: none;
-	// }
-	// @media #{$mobile} {
-	// 	.title {
-	// 		font-size: 1.5rem;
-	// 	}
-	// 	.menubar-links {
-	// 		display: none;
-	// 	}
-	// 	.mobile {
-	// 		display: block;
-	// 		margin: auto;
-	// 		padding-right: 10px;
-	// 		img {
-	// 			filter: invert(100%);
-	// 			background: white;
-	// 			width: 40px;
-	// 		}
-	// 	}
-	// }
+	.mobile {
+		display: none;
+	}
+	@media #{$mobile} {
+		.title {
+			font-size: 1.5rem;
+		}
+		.menubar-links {
+			display: none;
+		}
+		.mobile {
+			display: block;
+			margin: auto;
+			padding-right: 10px;
+			img {
+				filter: invert(100%);
+				background: white;
+				width: 40px;
+			}
+		}
+	}
 }
 
 // Vaccine Dashboard's header info
@@ -159,8 +158,6 @@ Media Queries for usage
 	background: #010915;
 	color: #bdbdbd;
 	height: 10vh;
-	position: fixed;
-	bottom: 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -168,7 +165,7 @@ Media Queries for usage
 	padding: 0 2rem 0 2rem;
 
 	.foot-content {
-		font-size: 1rem;
+		font-size: .8rem;
 		// border: 2px solid orange;
 	}
 
@@ -179,9 +176,11 @@ Media Queries for usage
 		margin: auto;
 		display: flex;
 		justify-content: flex-end;
+
 		a {
 			margin: auto 4% auto 0;
 		}
+
 		img {
 			background: #bdbdbd;
 			border-radius: 100%;
@@ -189,7 +188,10 @@ Media Queries for usage
 	}
 	@media #{$mobile} {
 		// @include flex(center, column);
+		display: flex;
+		flex-direction: column;
 		padding: 2% 0;
+		height: 40vh;
 		.foot-copyright {
 			font-size: 1rem;
 			margin-top: 2%;

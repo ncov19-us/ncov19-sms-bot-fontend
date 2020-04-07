@@ -25,11 +25,14 @@ const App = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-      .then(alert("Thank you for subscribing"))
-      .catch(e => console.log("AN ERROR WHILE POSTING TO DATABASE", e));
+    alert("Success, you are now added to the messaging list")
+    // axios
+    //   .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+    //   .then(alert("Thank you for subscribing"))
+    //   .catch(e => {
+    //     console.log("AN ERROR WHILE POSTING TO DATABASE", e)
+    //     alert("Sorry, an error happened on our end, please try again later")
+    //   });
   };
 
   return (
@@ -41,29 +44,35 @@ const App = () => {
             <img src={Phone} alt="phone demo of app" className="phone" />
           </div>
           <div className="form-wrapper">
-            <div className="form-description">
-              <h2 className="form-description-header">
-                Get tailored <br/>COVID-19 <strong>UPDATES</strong><br/>
-              </h2>
-              <p className="form-description-text">
-                No sign-up required, just text your zipcode to the same number
-              </p>
-            </div>
-            <form>
-              <input
-                type="phone"
-                className="form-input"
-                placeholder="ex. 555-555-5555"
-              />
-              <input
-                type="number"
-                className="form-input"
-                placeholder="ex. 90210"
-              />
-              <div className="btn-wrapper">
-                <button className="submit-btn"> Update Me</button>
+              <div className="form-description">
+                <h2 className="form-description-header">
+                  Get tailored <br/>COVID-19 UPDATES
+                </h2>
+                <p className="form-description-text">
+                  No sign-up required, just enter your phone number and zip code
+                </p>
               </div>
-            </form>
+              <form onSubmit={handleSubmit}>
+                <input
+                  id="phone"
+                  type="phone"
+                  name="phone"
+                  className="form-input"
+                  placeholder="Phone Number: 555-555-5555"
+                  onChange={handleChange}
+                />
+                <input
+                  id="zip"
+                  type="number"
+                  name="zip"
+                  className="form-input"
+                  placeholder="Zip Code: 90210"
+                  onChange={handleChange}
+                />
+                <div className="btn-wrapper">
+                  <button className="submit-btn"> Update Me</button>
+                </div>
+              </form>
           </div>
         </div>
       </main>
