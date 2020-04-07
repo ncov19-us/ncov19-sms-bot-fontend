@@ -34,7 +34,7 @@ export default function Header() {
         <a className="menubar-link" href="#">About</a>
       </nav>
 
-      <div className="mobile">
+      {/* <div className="mobile">
         <Modal trigger={<img src={burger} alt="menu-trigger" />} basic>
           <Modal.Content>
             <div
@@ -57,7 +57,7 @@ export default function Header() {
             </div>
           </Modal.Content>
         </Modal>
-      </div>
+      </div> */}
     </div>
   );
 }
