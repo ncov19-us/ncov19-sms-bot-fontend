@@ -1,11 +1,14 @@
 
 // Vaccine colors
-$gray-dark: #192029;
 $gunmetal: #1f242d;
 
+// Media Breakpoints
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
+
+
+
 /*
 Media Queries for usage 
 				@media #{$mobile} for mobile
@@ -15,17 +18,6 @@ Media Queries for usage
 	Table 	800px 
 */
 
-/*
- DRY: for usage @include flex(content, direction)
- For defaults
-    justify-content : flex-start
-    flex-direction : row
-*/
-// @mixin flex($content, $direction) {
-// 	display: flex;
-// 	justify-content: $content;
-// 	flex-direction: $direction;
-// }
 
 // Header Menu
 .menubar {
@@ -34,33 +26,44 @@ Media Queries for usage
 	color: #f4f4f4;
 	display: flex;
 	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 10vh;
 
-	.tittle {
-		// border: 2px solid red;
-		padding: 1.5rem 0 1.5rem 2rem;
+	.title {
 
-		a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 2rem;
+
+		.title-link {
+
 			color: white;
+
 			.title-name {
 				font-size: 2.2rem;
 			}
+
 		}
 	}
 
 	.menubar-links {
-		// border: 2px solid red;
+		
 		width: 40%;
 		display: flex;
 		justify-content: space-between;
 		padding-right: 2rem;
 		align-items: center;
 
-		#sms {
+		#sms-btn {
 			border: 1px solid white;
-			border-radius: 4px;
+			border-radius: .4rem;
 			margin-right: 2%;
 		}
-		a {
+
+		.menubar-link {
 			text-decoration: none;
 			color: #fff;
 			padding: 6px 10px;
@@ -70,6 +73,7 @@ Media Queries for usage
 			font-size: 1.05rem;
 		}
 	}
+	
 	// .mobile {
 	// 	display: none;
 	// }
@@ -95,35 +99,51 @@ Media Queries for usage
 
 // Vaccine Dashboard's header info
 .vacine-dash-header {
+
 	background: $gunmetal;
 	color: white;
 	padding: 2% 5%;
+
 	.date {
+
 		display: flex;
 		flex-direction: row;
+
 		.day {
+
 			color: #ffc428;
+
 		}
+
 		.format {
+
 			padding-left: 4px;
 			color: #ababab;
+
 		}
 	}
 	.cards {
-		// @include flex(space-between, row);
+		
 		.card {
 			border: 2px solid #dbbc6c;
 			padding: 2% 3%;
 			border-radius: 4px;
+			
 			p {
+			
 				font-size: 3rem;
 				color: #f4b000;
+
 			}
+			
 			.stats {
-				// @include flex(space-between, row);
+		
 				img {
+				
 					padding-left: 6px;
+
 				}
+
 			}
 		}
 	}
@@ -138,14 +158,18 @@ Media Queries for usage
 	// @include flex(space-around, row);
 	background: #010915;
 	color: #bdbdbd;
-	padding: 1.5% 3%;
+	height: 10vh;
 	position: fixed;
 	bottom: 0;
-	// max-width: 1440px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	// border: 2px solid red;
+	padding: 0 2rem 0 2rem;
 
 	.foot-content {
-		font-size: 0.75rem;
-		margin: auto;
+		font-size: 1rem;
+		// border: 2px solid orange;
 	}
 
 	.foot-copyright {
@@ -153,6 +177,8 @@ Media Queries for usage
 		width: 30%;
 		font-size: 1.05rem;
 		margin: auto;
+		display: flex;
+		justify-content: flex-end;
 		a {
 			margin: auto 4% auto 0;
 		}
@@ -177,9 +203,6 @@ Media Queries for usage
 	background-color: $gunmetal;
 }
 
-// body {
-// 	background-color: $gray-dark;
-// }
 
 .about {
 	.title {

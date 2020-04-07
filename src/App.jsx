@@ -35,17 +35,20 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      {/* <div>
-        <div className="App-wrapper">
+      <main class="cta-section">
+        <div className="cta-wrapper">
           <div className="img-wrapper">
             <img src={Phone} alt="phone demo of app" className="phone" />
           </div>
           <div className="form-wrapper">
-            <p className="description">
-              Get Tailored COVID-19 updates delivered to your mobile
-              <br />
-              <span className="description-secondary-text">No sign-up required, just text your zipcode to the same number</span>
-            </p>
+            <div className="form-description">
+              <h2 className="form-description-header">
+                Get tailored <br/>COVID-19 <strong>UPDATES</strong><br/>
+              </h2>
+              <p className="form-description-text">
+                No sign-up required, just text your zipcode to the same number
+              </p>
+            </div>
             <form>
               <input
                 type="phone"
@@ -63,8 +66,8 @@ const App = () => {
             </form>
           </div>
         </div>
-      </div> */}
-      {/* <Footer /> */}
+      </main>
+      <Footer />
     </div>
   );
 };

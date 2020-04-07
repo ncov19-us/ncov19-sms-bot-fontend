@@ -21,17 +21,17 @@ const aTags = { color: "white" };
 export default function Header() {
   return (
     <div className="menubar">
-      <div className="tittle">
-        <a href="#">
+      <div className="title">
+        <a href="#" className="title-link">
           <h1 className="title-name">COVID-19 Tracker</h1>
         </a>
       </div>
       <nav className="menubar-links">
-        <a href="#" alt="mobile-sms" id="sms">
+        <a className="menubar-link" href="#" alt="mobile-sms" id="sms-btn">
           Get Mobile Updates
         </a>
-        <a href="#">Vaccine Tracker</a>
-        <a href="#">About</a>
+        <a className="menubar-link" href="#">Vaccine Tracker</a>
+        <a className="menubar-link" href="#">About</a>
       </nav>
 
       {/* <div className="mobile">
