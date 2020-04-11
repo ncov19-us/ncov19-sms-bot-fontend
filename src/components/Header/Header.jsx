@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 // burger for menu
-import burger from "../../assets/menu.png";
+import burger from '../../assets/menu.png';
 
 // import { Modal } from "semantic-ui-react";
 
-import "../Styles.scss";
+import '../Styles.scss';
 
 /*
 menubar COMPONENT 
@@ -16,7 +16,7 @@ Styling is in pages.scss
 Needed inline styling for Modal 
 */
 
-const aTags = { color: "white" };
+const aTags = { color: 'white' };
 
 export default function Header() {
   return (
@@ -33,25 +33,36 @@ export default function Header() {
         <a className="menubar-link" href="#">Vaccine Tracker</a>
         <a className="menubar-link" href="#">About</a>
       </nav>
-
       {/* <div className="mobile">
         <Modal trigger={<img src={burger} alt="menu-trigger" />} basic>
           <Modal.Content>
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                fontSize: "1.5rem"
+                display: 'flex',
+                flexDirection: 'column',
+                textAlign: 'center',
+                fontSize: '1.5rem'
               }}
             >
-              <a href="#" alt="mobile-sms" style={aTags}>
+              <a
+                href='https://ncov19-vacc-dash-front-end.now.sh/'
+                alt='mobile-sms'
+                style={aTags}
+              >
                 Get Mobile Updates
               </a>
-              <a href="#" style={aTags} className="menubar-right">
+              <a
+                href='https://ncov19-vacc-dash-front-end.now.sh/'
+                style={aTags}
+                className='menubar-right'
+              >
                 Vaccine Tracker
               </a>
-              <a href="#" style={aTags} className="menubar-right">
+              <a
+                href='https://ncov19-vacc-dash-front-end.now.sh/'
+                style={aTags}
+                className='menubar-right'
+              >
                 About
               </a>
             </div>
