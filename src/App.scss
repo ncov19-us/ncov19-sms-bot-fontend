@@ -1,124 +1,161 @@
-$phablet: 750px;
+// google font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+// Phone breakpoint
+$phablet: 650px;
 
 .App {
-  text-align: center;
+  // text-align: center;
   // background: blueviolet;
+  height: 80vh;
 
   @media (max-width: $phablet) {
-    height: 100%;
-    height: 70rem;
+    // height: 100%;
+    // height: 70rem;
   }
 
-  .App-wrapper {
-    margin: 0 auto;
+  .cta-section {
+
+    height: 80vh;
     display: flex;
-    justify-content: space-between;
-    width: 90%;
-    height: 50vh;
-    max-width: 1024px;
-    margin-top: 6rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #192029;
 
-    @media (max-width: $phablet) {
-      margin-top: 3rem;
-    }
+    .cta-wrapper {
 
-    .img-wrapper {
-      width: 40%;
-
-      // background-color: coral;
+      // border: 2px solid red;
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
+      // margin-top: 3rem;
+      // margin-bottom: 3rem;
 
       @media (max-width: $phablet) {
-        width: 100%;
+        .img-wrapper{
+          display: none;
+        }
       }
-
-      .phone {
-        height: 100%;
+      
+      .img-wrapper {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @media (max-width: $phablet) {
+          // width: 70%;
           // margin-top: 3rem;
-          margin-bottom: 6rem;
-          width: 80%;
+          display: none;
         }
 
-        @media (max-width: 500px) {
-          width: 80%;
-          margin-bottom: 10rem;
+        .phone {
+          max-width: 50%;
+          height: auto;
         }
       }
-    }
 
-    .form-wrapper {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      // background-color: cadetblue;
-      @media (max-width: $phablet) {
-        flex-direction: column-reverse;
-        align-items: center;
-        width: 100%;
-        // background-color: green;
-        justify-content: flex-end;
-        margin-top: 0;
-      }
+      // Form and Form Header
+      .form-wrapper {
 
-      
-      form {
-        height: 100%;
+        // border: 5px solid green;
+        margin: 3rem;
         display: flex;
-        flex-direction: column;
-        margin: 0 auto;
+        justify-content: center;
         align-items: center;
+        width: 50%;
         background: #010915;
-        border-radius: 5px;
-        
-        .description {
-          margin-top: 3rem;
-          color: white;
-          text-align: left;
-          font-size: 1.5rem;
-          width: 80%;
-        }
-        .form-input {
-          margin-bottom: 1.5rem;
-          border: none;
-          text-decoration: none;
-          text-align: left;
-          border-radius: 5px;
-          height: 2rem;
-          width: 80%;
-          font-size: 1rem;
-          color: #1f242d;
-          padding-left: 0.5rem;
-        }
+        border-radius: 1rem;
 
-        .btn-wrapper {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: left;
-          text-align: center;
+        @media (max-width: $phablet) {
           width: 100%;
+          height: 70vh;
+          margin: 0;
+        }
 
-          .submit-btn {
-            margin: 3rem 3rem;
-            margin-bottom: 0;
-            padding: 0.2rem;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            background: #f4b000;
-            height: 2.5rem;
-            width: 250px;
-            font-size: 1.5rem;
+        .form-container{
+          
+          // border: 2px solid red;
+          // margin: 2rem;
+
+          .form-description {
+            // border: 2px solid red;
+            
+            .form-description-header{
+              // border: 2px solid orange;
+              color: white;
+              font-family: 'Lato', sans-serif;
+              font-weight: 400;
+            }
           }
 
-          .messages {
-            color: white;
-            text-align: left;
-            font-size: 1rem;
-            font-weight: 500;
-            margin: 1rem 3rem;
-            width: 400px;
+          form {
+            // border: 2px solid red;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            align-items: center;
+            border-radius: 10px;
+            
+            .form-label{
+
+              // border: 2px solid orange;
+              width: 100%;
+              color: white;
+              margin-top: 2rem;
+
+              .form-input {
+                border: none;
+                text-decoration: none;
+                text-align: left;
+                border-radius: 10px;
+                margin-top: .5rem;
+                padding: 1.5rem 1rem;
+                width: 100%;
+                font-size: 1rem;
+                background-color: #1f242d;
+                color: white;
+                
+                &::placeholder{
+                  color: white;
+                  opacity: 1;  // Firefox
+                }
+
+                // Used to remove the arrows on number input on the form
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                }
+
+                @media (max-width: $phablet) {
+                  padding: 1rem .5rem;
+                }
+              }
+            }
+
+            .btn-wrapper {
+
+              // border: 3px solid red;
+              display: flex;
+              justify-content: center;
+              text-align: center;
+              width: 100%;
+              margin-top: 2rem;
+
+              .submit-btn {
+
+                padding: 1rem .5rem;
+                border: none;
+                border-radius: .5rem;
+                color: #1f242d;
+                background: #f4b000;
+                width: 50%;
+                font-size: 1.5rem;
+
+              }
+            }
           }
         }
       }

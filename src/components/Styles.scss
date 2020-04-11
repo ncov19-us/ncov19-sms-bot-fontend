@@ -1,11 +1,15 @@
 
 // Vaccine colors
-$gray-dark: #192029;
 $gunmetal: #1f242d;
 
+// Media Breakpoints
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
+$phablet: "only screen and (max-width: 650px)";
+
+
+
 /*
 Media Queries for usage 
 				@media #{$mobile} for mobile
@@ -15,60 +19,69 @@ Media Queries for usage
 	Table 	800px 
 */
 
-/*
- DRY: for usage @include flex(content, direction)
- For defaults
-    justify-content : flex-start
-    flex-direction : row
-*/
-@mixin flex($content, $direction) {
-	display: flex;
-	justify-content: $content;
-	flex-direction: $direction;
-}
 
 // Header Menu
 .menubar {
-	@include flex(space-around, row);
-	background: #010915;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	// position: fixed;
-	// top: 0;
-	width: 100%;
-	color: #f4f4f4;
 
-	.tittle {
-		width: 100%;
-		text-align: left;
-		margin-left: 3%;
-		padding: 16.5px 0;
-		a {
+	background: #010915;
+	color: #f4f4f4;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 10vh;
+
+	.title {
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 2rem;
+
+		.title-link {
+
 			color: white;
+			text-decoration: none;
+
 			.title-name {
 				font-size: 2.2rem;
 			}
+
 		}
 	}
+
 	.menubar-links {
-		@include flex(flex-end, row);
-		width: 100%;
-		margin: auto;
-		margin-right: 3%;
-		#sms {
+		
+		width: 40%;
+		display: flex;
+		justify-content: space-between;
+		padding-right: 2rem;
+		align-items: center;
+
+		#sms-btn {
 			border: 1px solid white;
-			border-radius: 4px;
+			border-radius: .4rem;
 			margin-right: 2%;
+
+			&:hover{
+				border-color: #F4B000;
+			}
 		}
-		a {
+
+		.menubar-link {
 			text-decoration: none;
 			color: #fff;
 			padding: 6px 10px;
 			font-size: 1.05rem;
+			
+			&:hover{
+				color: #F4B000;
+			}
 		}
 		.menubar-right {
 			font-size: 1.05rem;
 		}
 	}
+	
 	.mobile {
 		display: none;
 	}
@@ -94,254 +107,290 @@ Media Queries for usage
 
 // Vaccine Dashboard's header info
 .vacine-dash-header {
+
 	background: $gunmetal;
 	color: white;
 	padding: 2% 5%;
+
 	.date {
+
 		display: flex;
 		flex-direction: row;
+
 		.day {
+
 			color: #ffc428;
+
 		}
+
 		.format {
+
 			padding-left: 4px;
 			color: #ababab;
+
 		}
 	}
 	.cards {
-		@include flex(space-between, row);
+		
 		.card {
 			border: 2px solid #dbbc6c;
 			padding: 2% 3%;
 			border-radius: 4px;
+			
 			p {
+			
 				font-size: 3rem;
 				color: #f4b000;
+
 			}
+			
 			.stats {
-				@include flex(space-between, row);
+		
 				img {
+				
 					padding-left: 6px;
+
 				}
+
 			}
 		}
 	}
 }
+
+
+
+
+
 // foot
 .foot {
-	@include flex(space-around, row);
+	// @include flex(space-around, row);
+	// border: 2px solid red;
 	background: #010915;
 	color: #bdbdbd;
-	padding: 1.5% 3%;
-	position: fixed;
-	bottom: 0;
-	// max-width: 1440px;
+	height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem 0 2rem;
 
 	.foot-content {
-		font-size: 0.75rem;
-		margin: auto;
+		font-size: .8rem;
+		// border: 2px solid orange;
+
+		@media #{$phablet} {
+			padding: 0 1rem;
+			line-height: 2;
+			font-size: .91rem;
+		}
 	}
+
 	.foot-copyright {
-		@include flex(flex-end, row);
+		// @include flex(flex-end, row);
 		width: 30%;
 		font-size: 1.05rem;
 		margin: auto;
+		display: flex;
+		justify-content: flex-end;
+		// border: 2px solid orange;
+
 		a {
 			margin: auto 4% auto 0;
 		}
+
 		img {
 			background: #bdbdbd;
 			border-radius: 100%;
 		}
-	}
-	@media #{$mobile} {
-		@include flex(center, column);
-		padding: 2% 0;
-		.foot-copyright {
-			font-size: 1rem;
-			margin-top: 2%;
-			@include flex(center, row);
+
+		@media #{$phablet} {
+			width: 50%;
+			justify-content: center;
 		}
+	}
+
+	@media #{$phablet} {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 2% 0;
+		height: 30vh;
 	}
 }
 
 // main
-.main {
-	background-color: $gunmetal;
-}
+// .main {
+// 	background-color: $gunmetal;
+// }
 
-body {
-	background-color: $gray-dark;
-}
 
-.about {
-	.title {
-		@include flex(center, row);
-		align-items: center;
-		background: url("../assets/virus-img.png");
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center;
-		height: 300px;
-		color: white;
-	}
-	.cards {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		.card {
-			padding: 1% 2%;
-			width: 300px;
-			color: white;
-			@media #{$tablet} {
-				width: 100%;
-			}
-		}
-	}
-	@media #{$mobile} {
-		.title {
-			height: 150px;
-		}
-		.cards {
-			@include flex(start, row);
-			.card {
-				padding: 2% 3%;
-				width: 100%;
-			}
-		}
-	}
-}
+// .about {
+// 	.title {
+// 		// @include flex(center, row);
+// 		align-items: center;
+// 		background: url("../assets/virus-img.png");
+// 		background-repeat: no-repeat;
+// 		background-size: contain;
+// 		background-position: center;
+// 		height: 300px;
+// 		color: white;
+// 	}
+// 	.cards {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		justify-content: center;
+// 		.card {
+// 			padding: 1% 2%;
+// 			width: 300px;
+// 			color: white;
+// 			@media #{$tablet} {
+// 				width: 100%;
+// 			}
+// 		}
+// 	}
+// 	@media #{$mobile} {
+// 		.title {
+// 			height: 150px;
+// 		}
+// 		.cards {
+// 			// @include flex(start, row);
+// 			.card {
+// 				padding: 2% 3%;
+// 				width: 100%;
+// 			}
+// 		}
+// 	}
+// }
 
-.trial-headers {
-	@include flex(space-around, row);
-	color: white;
-	h2 {
-		margin: auto;
-		padding-bottom: 2%;
-	}
-}
+// .trial-headers {
+// 	// @include flex(space-around, row);
+// 	color: white;
+// 	h2 {
+// 		margin: auto;
+// 		padding-bottom: 2%;
+// 	}
+// }
 
 
 
-// Table
-$tableHover:rgba(161, 161, 161, 0.5);
-$hoverShadow: #40495B;
-.table-wrapper {
-@media #{$desktop} {
-.table { 
-text-align: left;
-overflow: hidden;
-width: 80%;
-font-size: 1rem;
-margin: 0 auto;
-display: table;
-padding: 0 0 8em 0;
-background-color: #2C3341;
-border-radius: 15px;
-border-collapse: collapse;
-th {
-font-weight: bold;
-font-size: 1em;
-text-align: left;
-color: #a1a1a1;
-padding: 1.5rem;
-border-bottom: #FFFFFF 1px solid;
-}
-td {
-font-weight: normal;
-color: #FFFFFF;
-font-size: 1em;
-padding: 1rem;
-&:hover{
-color: $gunmetal;
-}
-}
-tbody tr{
-&:hover {
-background-color: $tableHover;
-color: $gunmetal;
-font-weight: bold;
-transition-delay: 0s;
-transition-duration: 0.4s;
-transition-property: all;
-transition-timing-function: line;
-}
-}
-}
-}
-@media #{$tablet} {
-.table {
-text-align: left;
-overflow: hidden;
-width: 80%;
-font-size: 1rem;
-margin: 0 auto;
-display: table;
-th {
-font-weight: bold;
-font-size: 1em;
-text-align: center;
-color: #dbbc6c;
-padding: 0.3rem;
-background-color: #2c3341;
-}
+// // Table
+// $tableHover:rgba(161, 161, 161, 0.5);
+// $hoverShadow: #40495B;
+// .table-wrapper {
+// @media #{$desktop} {
+// .table { 
+// text-align: left;
+// overflow: hidden;
+// width: 80%;
+// font-size: 1rem;
+// margin: 0 auto;
+// display: table;
+// padding: 0 0 8em 0;
+// background-color: #2C3341;
+// border-radius: 15px;
+// border-collapse: collapse;
+// th {
+// font-weight: bold;
+// font-size: 1em;
+// text-align: left;
+// color: #a1a1a1;
+// padding: 1.5rem;
+// border-bottom: #FFFFFF 1px solid;
+// }
+// td {
+// font-weight: normal;
+// color: #FFFFFF;
+// font-size: 1em;
+// padding: 1rem;
+// &:hover{
+// color: $gunmetal;
+// }
+// }
+// tbody tr{
+// &:hover {
+// background-color: $tableHover;
+// color: $gunmetal;
+// font-weight: bold;
+// transition-delay: 0s;
+// transition-duration: 0.4s;
+// transition-property: all;
+// transition-timing-function: line;
+// }
+// }
+// }
+// }
+// @media #{$tablet} {
+// .table {
+// text-align: left;
+// overflow: hidden;
+// width: 80%;
+// font-size: 1rem;
+// margin: 0 auto;
+// display: table;
+// th {
+// font-weight: bold;
+// font-size: 1em;
+// text-align: center;
+// color: #dbbc6c;
+// padding: 0.3rem;
+// background-color: #2c3341;
+// }
 
-td {
-font-weight: normal;
-color: white;
-font-size: 1em;
-padding: 0.3rem;
-&:hover {
-background-color: $tableHover;
-color: $gunmetal;
-}
-&:first-child {
-color: white;
-&:hover {
-color: $gunmetal;
-}
-}
-}
-}
+// td {
+// font-weight: normal;
+// color: white;
+// font-size: 1em;
+// padding: 0.3rem;
+// &:hover {
+// background-color: $tableHover;
+// color: $gunmetal;
+// }
+// &:first-child {
+// color: white;
+// &:hover {
+// color: $gunmetal;
+// }
+// }
+// }
+// }
 
-overflow-x: scroll;
-.table {
-margin-top: 10px;
-border-radius: 10px;
-th {
-padding: 5px 10px;
-text-align: left;
-color: white;
-border: none;
-}
-td {
-width: fit-content;
-&:nth-child(1) {
-.country {
-color: #4d4d4d;
-}
-white-space: nowrap;
-}
-&:nth-child(4) {
-color: #e55465;
-}
-&:nth-child(5) {
-color: #dbbc6c;
-}
-}
-}
-}
-}
-.table-wrapper::-webkit-scrollbar-thumb {
-width: 3px;
-height: 3px;
-border-radius: 0;
-background: white;
-}
+// overflow-x: scroll;
+// .table {
+// margin-top: 10px;
+// border-radius: 10px;
+// th {
+// padding: 5px 10px;
+// text-align: left;
+// color: white;
+// border: none;
+// }
+// td {
+// width: fit-content;
+// &:nth-child(1) {
+// .country {
+// color: #4d4d4d;
+// }
+// white-space: nowrap;
+// }
+// &:nth-child(4) {
+// color: #e55465;
+// }
+// &:nth-child(5) {
+// color: #dbbc6c;
+// }
+// }
+// }
+// }
+// }
+// .table-wrapper::-webkit-scrollbar-thumb {
+// width: 3px;
+// height: 3px;
+// border-radius: 0;
+// background: white;
+// }
 
-.table-wrapper::-webkit-scrollbar-thumb {
-	width: 3px;
-	height: 3px;
-	border-radius: 0;
-	background: white;
-}
+// .table-wrapper::-webkit-scrollbar-thumb {
+// 	width: 3px;
+// 	height: 3px;
+// 	border-radius: 0;
+// 	background: white;
+// }
