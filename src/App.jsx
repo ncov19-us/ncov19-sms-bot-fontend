@@ -47,44 +47,44 @@ const App = () => {
             <img src={Phone} alt="phone demo of app" className="phone" />
           </div>
           <div className="form-wrapper">
-              <div className="form-description">
-                <h2 className="form-description-header">
-                  Get tailored COVID-19 UPDATES<br/>delivered strait to mobile
+            <div className="form-description">
+              <h2 className="form-description-header">
+                Get tailored COVID-19 UPDATES<br />delivered strait to mobile
                 </h2>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <label className="form-label">
+                CELLPHONE<br />
+                <input
+                  id="phone"
+                  type="phone"
+                  name="phone"
+                  className="form-input"
+                  placeholder="555-555-5555"
+                  onChange={handleChange}
+                  pattern="^\d{10}$"
+                  title="Must be 10 digits"
+                  required
+                />
+              </label>
+              <label className="form-label">
+                ZIP CODE
+                  <input
+                  id="zip"
+                  type="number"
+                  name="zip"
+                  className="form-input"
+                  placeholder="90210"
+                  onChange={handleChange}
+                  pattern="^\d{5}$"
+                  title="Must be 5 digits"
+                  required
+                />
+              </label>
+              <div className="btn-wrapper">
+                <button className="submit-btn">Get Notified</button>
               </div>
-              <form onSubmit={handleSubmit}>
-                <label className="form-label">
-                  CELLPHONE<br/>
-                  <input
-                    id="phone"
-                    type="phone"
-                    name="phone"
-                    className="form-input"
-                    placeholder="555-555-5555"
-                    onChange={handleChange}
-                    pattern="^\d{10}$"
-                    title="Must be 10 digits"
-                    required
-                  />
-                </label>
-                <label className="form-label">
-                  ZIP CODE
-                  <input
-                    id="zip"
-                    type="number"
-                    name="zip"
-                    className="form-input"
-                    placeholder="90210"
-                    onChange={handleChange}
-                    pattern="^\d{5}$"
-                    title="Must be 5 digits"
-                    required
-                  />
-                </label>
-                <div className="btn-wrapper">
-                  <button className="submit-btn">Get Notified</button>
-                </div>
-              </form>
+            </form>
           </div>
         </div>
       </main>
