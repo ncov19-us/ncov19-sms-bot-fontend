@@ -57,7 +57,7 @@ const App = () => {
                   CELLPHONE<br/>
                   <input
                     id="phone"
-                    type="phone"
+                    type="tel"
                     name="phone"
                     className="form-input"
                     placeholder="555-555-5555"
@@ -71,12 +71,12 @@ const App = () => {
                   ZIP CODE
                   <input
                     id="zip"
-                    type="number"
+                    type="string"
                     name="zip"
                     className="form-input"
                     placeholder="90210"
                     onChange={handleChange}
-                    pattern="^\d{5}$"
+                    pattern="[0-9]{5}$"
                     title="Must be 5 digits"
                     required
                   />
