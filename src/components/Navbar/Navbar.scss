@@ -1,0 +1,148 @@
+
+// for dev purpose only
+body{
+  background-color: #bbb;
+}
+
+.header {
+
+  background-color: white;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  
+  // div{
+
+    .logo{
+      
+      color: #000;
+      float: left;
+      font-size: 2rem;
+      padding: .6rem 1.5rem
+      
+    }
+
+    .menu-btn{
+
+      display: none;
+
+    }
+
+    .menu-icon {
+
+
+      @media (min-width: 768px){
+        display: none;  
+      }
+
+      // border: 1px solid red;
+      padding: 28px 28px;
+      position: relative;
+      cursor: pointer;
+      float: right;
+
+      // Middle line in hamburger
+      .nav-icon {
+
+        background-color: #333;
+        display: block;
+        height: 2px;
+        width: 18px;
+        position: relative;
+        transition: background .2s ease-out;
+
+        // top and bottom lines
+        &::before,
+        &::after {
+
+          background-color: #333;
+          content: "";
+          display: block;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: -5px;
+          transition: all .2s ease-out;
+
+        }
+
+        // bottom line
+        &::after{
+
+          top: 5px;
+
+        }
+
+      }
+
+    // }
+
+  }
+
+
+  .menu{
+    
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    clear: both;
+
+    @media (min-width: 768px){
+      display: flex;   
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+
+    li{
+
+      .nav-link{
+
+
+        @media (min-width: 768px){
+         padding: 20px 30px; 
+        }
+
+        color: #000;
+        text-decoration: none;
+        display: block; // allow user to click on the level of the link, and not just the text
+        padding: 20px;
+        outline: 1px solid red;
+        border-right: 1px solid #aaa;
+
+        &:hover{
+
+          background-color: #ddd;
+
+        }
+      }
+    }
+  }
+}
+
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon{
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon::before{
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon::after{
+  top: 0;
+  transform: rotate(45deg);
+}
+
+@media(min-width: 768px){
+  
+}
