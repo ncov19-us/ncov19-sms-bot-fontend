@@ -61,6 +61,10 @@ Media Queries for usage
 			border: 1px solid white;
 			border-radius: .4rem;
 			margin-right: 2%;
+
+			&:hover{
+				border-color: #F4B000;
+			}
 		}
 
 		.menubar-link {
@@ -68,6 +72,10 @@ Media Queries for usage
 			color: #fff;
 			padding: 6px 10px;
 			font-size: 1.05rem;
+			
+			&:hover{
+				color: #F4B000;
+			}
 		}
 		.menubar-right {
 			font-size: 1.05rem;

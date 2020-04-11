@@ -2,7 +2,7 @@ import React from "react";
 // burger for menu
 import burger from "../../assets/menu.png";
 
-import { Modal } from "semantic-ui-react";
+// import { Modal } from "semantic-ui-react";
 
 import "../Styles.scss";
 

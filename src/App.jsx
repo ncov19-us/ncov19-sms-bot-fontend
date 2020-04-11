@@ -11,8 +11,10 @@ import Phone from "./assets/mobile_image.png";
 // component imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar"
 
 const App = () => {
+
   // state to hold the input data before sending it to the backend
   const [state, setState] = useState({
     zip: "",
@@ -37,6 +39,7 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* <Navbar/> */}
       <Header />
       <main class="cta-section">
         <div className="cta-wrapper">
@@ -46,31 +49,40 @@ const App = () => {
           <div className="form-wrapper">
               <div className="form-description">
                 <h2 className="form-description-header">
-                  Get tailored <br/>COVID-19 UPDATES
+                  Get tailored COVID-19 UPDATES<br/>delivered strait to mobile
                 </h2>
-                <p className="form-description-text">
-                  No sign-up required, just enter your phone number and zip code
-                </p>
               </div>
               <form onSubmit={handleSubmit}>
-                <input
-                  id="phone"
-                  type="phone"
-                  name="phone"
-                  className="form-input"
-                  placeholder="Phone Number: 555-555-5555"
-                  onChange={handleChange}
-                />
-                <input
-                  id="zip"
-                  type="number"
-                  name="zip"
-                  className="form-input"
-                  placeholder="Zip Code: 90210"
-                  onChange={handleChange}
-                />
+                <label className="form-label">
+                  CELLPHONE<br/>
+                  <input
+                    id="phone"
+                    type="phone"
+                    name="phone"
+                    className="form-input"
+                    placeholder="555-555-5555"
+                    onChange={handleChange}
+                    pattern="^\d{10}$"
+                    title="Must be 10 digits"
+                    required
+                  />
+                </label>
+                <label className="form-label">
+                  ZIP CODE
+                  <input
+                    id="zip"
+                    type="number"
+                    name="zip"
+                    className="form-input"
+                    placeholder="90210"
+                    onChange={handleChange}
+                    pattern="^\d{5}$"
+                    title="Must be 5 digits"
+                    required
+                  />
+                </label>
                 <div className="btn-wrapper">
-                  <button className="submit-btn"> Update Me</button>
+                  <button className="submit-btn">Get Notified</button>
                 </div>
               </form>
           </div>
