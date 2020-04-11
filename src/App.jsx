@@ -47,9 +47,10 @@ const App = () => {
             <img src={Phone} alt="phone demo of app" className="phone" />
           </div>
           <div className="form-wrapper">
-            <div className="form-description">
+            <div className="form-container">
+              <div className="form-description">
               <h2 className="form-description-header">
-                Get tailored COVID-19 UPDATES<br />delivered strait to mobile
+                Get tailored COVID-19 updates delivered<br/>straight to mobile
                 </h2>
               </div>
               <form onSubmit={handleSubmit}>
@@ -60,7 +61,7 @@ const App = () => {
                     type="tel"
                     name="phone"
                     className="form-input"
-                    placeholder="555-555-5555"
+                    placeholder="ex. 555-555-5555"
                     onChange={handleChange}
                     pattern="^\d{10}$"
                     title="Must be 10 digits"
@@ -74,7 +75,7 @@ const App = () => {
                     type="string"
                     name="zip"
                     className="form-input"
-                    placeholder="90210"
+                    placeholder="ex. 90210"
                     onChange={handleChange}
                     pattern="[0-9]{5}$"
                     title="Must be 5 digits"
@@ -85,6 +86,7 @@ const App = () => {
                   <button className="submit-btn">Get Notified</button>
                 </div>
               </form>
+            </div>
           </div>
         </div>
       </main>
