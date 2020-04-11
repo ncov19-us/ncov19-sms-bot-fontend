@@ -47,9 +47,9 @@ const App = () => {
             <img src={Phone} alt="phone demo of app" className="phone" />
           </div>
           <div className="form-wrapper">
-              <div className="form-description">
-                <h2 className="form-description-header">
-                  Get tailored COVID-19 UPDATES<br/>delivered strait to mobile
+            <div className="form-description">
+              <h2 className="form-description-header">
+                Get tailored COVID-19 UPDATES<br />delivered strait to mobile
                 </h2>
               </div>
               <form onSubmit={handleSubmit}>
