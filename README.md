@@ -27,8 +27,6 @@ An SMS bot front end for easily getting the latest COVID-19 updates for your are
 
 ##  4️⃣ Contributing
 
-When contributing to this repository, please read [CONTRUBTION](./CONTRIBUTION.md) guide.
-
 Please note we have a [CODE OF CONDUCT](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ### Issue/Bug Request
