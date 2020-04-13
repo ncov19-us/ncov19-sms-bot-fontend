@@ -7,13 +7,9 @@
 
 An SMS bot front end for easily getting the latest COVID-19 updates for your area with a provided zip code.
 
----
-
 ## 2️⃣ Tech Stack 
 
 - React
-
----
 
 ## 3️⃣ Contributors
 
