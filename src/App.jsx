@@ -27,21 +27,22 @@ const App = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert("Success, you are now added to the messaging list")
-    // axios
-    //   .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-    //   .then(alert("Thank you for subscribing"))
-    //   .catch(e => {
-    //     console.log("AN ERROR WHILE POSTING TO DATABASE", e)
-    //     alert("Sorry, an error happened on our end, please try again later")
-    //   });
+    console.log('req url', process.env.REACT_APP_API_URL)
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
-
+  console.log(state)
   return (
     <div className="App">
       {/* <Navbar/> */}
       <Header />
-      <main class="cta-section">
+      <main className="cta-section">
         <div className="cta-wrapper">
           <div className="img-wrapper">
             <img src={Phone} alt="phone demo of app" className="phone" />

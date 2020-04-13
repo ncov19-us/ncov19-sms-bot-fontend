@@ -28,14 +28,14 @@ Media Queries for usage
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	height: 10vh;
+	height: 7.5vh;
 
 	.title {
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding-left: 2rem;
+		padding-left: 3rem;
 
 		.title-link {
 
@@ -43,7 +43,12 @@ Media Queries for usage
 			text-decoration: none;
 
 			.title-name {
-				font-size: 2.2rem;
+				font-size: 2.3rem;
+				font-weight: 800;
+
+				.title-span {
+					font-weight: 600;
+				}
 			}
 
 		}
@@ -51,16 +56,16 @@ Media Queries for usage
 
 	.menubar-links {
 		
-		width: 40%;
+		width: 35rem;
 		display: flex;
 		justify-content: space-between;
-		padding-right: 2rem;
+		padding-right: 3rem;
 		align-items: center;
 
 		#sms-btn {
-			border: 1px solid white;
+			border: 0.05rem solid white;
+			padding: .5rem 1rem;
 			border-radius: .4rem;
-			margin-right: 2%;
 
 			&:hover{
 				border-color: #F4B000;
@@ -70,8 +75,8 @@ Media Queries for usage
 		.menubar-link {
 			text-decoration: none;
 			color: #fff;
-			padding: 6px 10px;
-			font-size: 1.05rem;
+			font-size: 1.3rem;
+			font-weight: 600;
 			
 			&:hover{
 				color: #F4B000;
@@ -171,10 +176,13 @@ Media Queries for usage
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 2rem 0 2rem;
+	padding: 0 3rem;
 
 	.foot-content {
-		font-size: .8rem;
+		font-weight: 600;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		width: 85%;
 		// border: 2px solid orange;
 
 		@media #{$phablet} {
@@ -187,19 +195,19 @@ Media Queries for usage
 	.foot-copyright {
 		// @include flex(flex-end, row);
 		width: 30%;
-		font-size: 1.05rem;
+		font-size: 1.3rem;
 		margin: auto;
 		display: flex;
+		align-items: center;
 		justify-content: flex-end;
 		// border: 2px solid orange;
 
 		a {
-			margin: auto 4% auto 0;
+			// margin: auto 4% auto 0;
 		}
 
-		img {
-			background: #bdbdbd;
-			border-radius: 100%;
+		.github-logo {
+			margin-right: 1rem;
 		}
 
 		@media #{$phablet} {
