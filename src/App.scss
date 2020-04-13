@@ -115,11 +115,11 @@ $phablet: 650px;
                 padding: 1.5rem 1rem;
                 width: 100%;
                 font-size: 1rem;
-                background-color: #1f242d;
-                color: white;
+                color: #1f242d;
+                background: white;
                 
                 &::placeholder{
-                  color: white;
+                  color: #1f242d;
                   opacity: 1;  // Firefox
                 }
 
@@ -151,7 +151,7 @@ $phablet: 650px;
                 border-radius: .5rem;
                 color: #1f242d;
                 background: #f4b000;
-                width: 50%;
+                width: 100%;
                 font-size: 1.5rem;
 
               }
