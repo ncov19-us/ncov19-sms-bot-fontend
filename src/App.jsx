@@ -56,7 +56,7 @@ const App = () => {
               </div>
               <form onSubmit={handleSubmit}>
                 <label className="form-label">
-                  CELLPHONE<br/>
+                  Phone Number<br/>
                   <input
                     id="phone"
                     type="tel"
@@ -70,7 +70,7 @@ const App = () => {
                   />
                 </label>
                 <label className="form-label">
-                  ZIP CODE
+                  ZIP Code
                   <input
                     id="zip"
                     type="string"
