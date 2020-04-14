@@ -3,7 +3,7 @@
 $gunmetal: #1f242d;
 
 // Media Breakpoints
-$narrow-desktop:  "only screen and (max-width: 1152px)"; // 64rem
+$narrow-desktop: "64rem";
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
@@ -33,25 +33,12 @@ Media Queries for usage
 	width: 100%;
 	height: 7.5vh;
 
-	// @media #{$narrow-desktop}{
-	// 	display: block;
-	// 	text-align: left;
-	// 	position: relative;
-	// }
-
 	.title {
-		// border: 2px solid red;
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding-left: 4.5vh;
-
-		// @media #{$narrow-desktop}{
-		// 	display: inline-block;
-		// 	// position: absolute;
-		// 	// top: 50%;
-		// 	// margin-top: -20px;
-		// }
 
 		.title-link {
 
@@ -61,12 +48,10 @@ Media Queries for usage
 			.title-name {
 				font-size: 3.7vh;
 				font-weight: 800;
-
 				.title-span {
 					font-weight: 3.7vh;
 					font-weight: 500;
 				}
-
 			}
 
 		}
@@ -80,7 +65,7 @@ Media Queries for usage
 		font-weight: 500;
 		font-size: 2.1vh;
 
-		@media #{$narrow-desktop} {
+		@media (max-width: $narrow-desktop) {
 			display: none;
 		}
 
@@ -109,13 +94,35 @@ Media Queries for usage
 		// }
 	}
 	
+	.mobile {
+		display: none;
+	}
+	@media #{$mobile} {
+		.title {
+			font-size: 1.5rem;
+		}
+		.menubar-links {
+			display: none;
+		}
+		.mobile {
+			display: block;
+			margin: auto;
+			padding-right: 10px;
+			img {
+				filter: invert(100%);
+				background: white;
+				width: 40px;
+			}
+		}
+	}
+	
 	.toggler{
 		display: none;
 
-		@media #{$narrow-desktop}{
+		@media (max-width:$narrow-desktop){
 			
 			// border: 2px solid red;
-			margin-right: 8vh;
+			margin-right: 4.5vh;
 			width: 40px;
 			height: 40px;
 			display: flex;
@@ -127,7 +134,7 @@ Media Queries for usage
 		.toggler-icon{
 			display: none;
 
-			@media #{$narrow-desktop}{
+			@media (max-width:$narrow-desktop){
 				display: block;
 				height: 2px;
 				width: 20px;
@@ -151,7 +158,7 @@ Media Queries for usage
 
 			}
 		}
-	}
+}
 
 	@media #{$mobile} {
 		.title {
@@ -243,7 +250,6 @@ Media Queries for usage
 			}
 		}
 	}
-		
 }
 	
 	// main
