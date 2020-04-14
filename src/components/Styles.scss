@@ -62,15 +62,16 @@ Media Queries for usage
 		padding-right: 8vh;
 		align-items: center;
 		font-weight: 500;
+		font-size: 2.1vh;
 
 		@media (max-width: $narrow-desktop) {
 			display: none;
 		}
 
 		#sms-btn {
-			border: 0.08rem solid white;
-			padding: .8vh 1.6vh;
-			border-radius: .5rem;
+			border: 1px solid white;
+			padding: .5rem .9rem;
+			border-radius: .4rem;
 
 			&:hover{
 				border-color: #F4B000;
@@ -80,9 +81,8 @@ Media Queries for usage
 		.menubar-link {
 			text-decoration: none;
 			color: #ffffff;
-			font-size: 2.1vh;
 			font-weight: 600;
-			margin-left: 3vh;
+			margin-left: 1.8vh;
 			
 			&:hover{
 				color: #F4B000;
@@ -149,10 +149,8 @@ Media Queries for usage
 			border-radius: 4px;
 			
 			p {
-			
 				font-size: 3rem;
 				color: #f4b000;
-
 			}
 			
 			.stats {
@@ -176,65 +174,76 @@ Media Queries for usage
 .foot {
 	background: #010915;
 	color: #bdbdbd;
-	height: 7.5vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 3rem;
+	text-align: left;
 
+	@media (max-width: $narrow-desktop) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
 	.foot-content {
 		font-weight: 500;
-		font-size: 1rem;
-		width: 100%;
+		font-size: 1.6vh;
+		padding: 2.55vh 0;
+		width: 80%;
 		line-height: 1.5;
-
-		@media #{$phablet} {
-			padding: 0 1rem;
-			font-size: .91rem;
+		
+		@media (max-width: $narrow-desktop) {
+			margin-top: 1vh;
+			width: 100%;
 		}
 	}
-
+	
 	.foot-copyright {
 		// @include flex(flex-end, row);
-		width: 30%;
-		font-size: 1.3vh;
-		margin: auto;
+		width: 11%;
+		max-width: 13rem;
+		font-size: 2vh;
 		display: flex;
 		font-weight: 400;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: space-between;
 		// border: 2px solid orange;
-
-		// a {
-		// 	// margin: auto 4% auto 0;
-		// }
+		
+		@media (max-width: $narrow-desktop) {
+			// width: 3rem;
+			// min-width: 2.5rem;
+		}
+		
+		p {
+			text-align: center;
+			
+			@media (max-width: $narrow-desktop) {
+				text-align: center;
+				margin-bottom: 1rem;
+			}
+		}
 
 		.github-logo {
 			margin-right: 1rem;
-		}
+			width: 2.1rem;
+			height: 2.1rem;
 
-		@media #{$phablet} {
-			width: 50%;
-			justify-content: center;
+			@media (max-width: $narrow-desktop) {
+				// margin: 0;
+				margin-bottom: 1rem;
+			}
 		}
 	}
-
-	@media #{$phablet} {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 2% 0;
-		height: 30vh;
-	}
+		
 }
-
-// main
-// .main {
-// 	background-color: $gunmetal;
-// }
-
-
-// .about {
+	
+	// main
+	// .main {
+		// 	background-color: $gunmetal;
+		// }
+		
+		
+		// .about {
 // 	.title {
 // 		// @include flex(center, row);
 // 		align-items: center;
