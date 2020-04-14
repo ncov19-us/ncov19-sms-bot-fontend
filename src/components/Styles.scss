@@ -3,6 +3,7 @@
 $gunmetal: #1f242d;
 
 // Media Breakpoints
+$narrow-desktop: 64rem;
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
@@ -22,20 +23,21 @@ Media Queries for usage
 
 // Header Menu
 .menubar {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 	background: #010915;
 	color: #f4f4f4;
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	height: 10vh;
+	height: 7.5vh;
 
 	.title {
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding-left: 2rem;
+		padding-left: 4.5vh;
 
 		.title-link {
 
@@ -43,24 +45,32 @@ Media Queries for usage
 			text-decoration: none;
 
 			.title-name {
-				font-size: 2.2rem;
+				font-size: 3.7vh;
+				font-weight: 800;
+				.title-span {
+					font-weight: 3.7vh;
+					font-weight: 500;
+				}
 			}
 
 		}
 	}
 
 	.menubar-links {
-		
-		width: 40%;
 		display: flex;
 		justify-content: space-between;
-		padding-right: 2rem;
+		padding-right: 8vh;
 		align-items: center;
+		font-weight: 500;
+
+		@media (max-width: $narrow-desktop) {
+			display: none;
+		}
 
 		#sms-btn {
-			border: 1px solid white;
-			border-radius: .4rem;
-			margin-right: 2%;
+			border: 0.08rem solid white;
+			padding: .8vh 1.6vh;
+			border-radius: .5rem;
 
 			&:hover{
 				border-color: #F4B000;
@@ -69,17 +79,18 @@ Media Queries for usage
 
 		.menubar-link {
 			text-decoration: none;
-			color: #fff;
-			padding: 6px 10px;
-			font-size: 1.05rem;
+			color: #ffffff;
+			font-size: 2.1vh;
+			font-weight: 600;
+			margin-left: 3vh;
 			
 			&:hover{
 				color: #F4B000;
 			}
 		}
-		.menubar-right {
-			font-size: 1.05rem;
-		}
+		// .menubar-right {
+		// 	font-size: 1.05rem;
+		// }
 	}
 	
 	.mobile {
@@ -163,23 +174,22 @@ Media Queries for usage
 
 // foot
 .foot {
-	// @include flex(space-around, row);
-	// border: 2px solid red;
 	background: #010915;
 	color: #bdbdbd;
-	height: 10vh;
+	height: 7.5vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 2rem 0 2rem;
+	padding: 0 3rem;
 
 	.foot-content {
-		font-size: .8rem;
-		// border: 2px solid orange;
+		font-weight: 500;
+		font-size: 1rem;
+		width: 100%;
+		line-height: 1.5;
 
 		@media #{$phablet} {
 			padding: 0 1rem;
-			line-height: 2;
 			font-size: .91rem;
 		}
 	}
@@ -187,19 +197,20 @@ Media Queries for usage
 	.foot-copyright {
 		// @include flex(flex-end, row);
 		width: 30%;
-		font-size: 1.05rem;
+		font-size: 1.3vh;
 		margin: auto;
 		display: flex;
+		font-weight: 400;
+		align-items: center;
 		justify-content: flex-end;
 		// border: 2px solid orange;
 
-		a {
-			margin: auto 4% auto 0;
-		}
+		// a {
+		// 	// margin: auto 4% auto 0;
+		// }
 
-		img {
-			background: #bdbdbd;
-			border-radius: 100%;
+		.github-logo {
+			margin-right: 1rem;
 		}
 
 		@media #{$phablet} {

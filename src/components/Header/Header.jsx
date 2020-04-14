@@ -22,16 +22,16 @@ export default function Header() {
   return (
     <div className="menubar">
       <div className="title">
-        <a href="#" className="title-link">
-          <h1 className="title-name">COVID-19 Tracker</h1>
+        <a href="https://ncov19.us" className="title-link">
+          <h1 className="title-name">COVID-19 <span className="title-span">Tracker</span></h1>
         </a>
       </div>
       <nav className="menubar-links">
-        <a className="menubar-link" href="#" alt="mobile-sms" id="sms-btn">
+        <a className="menubar-link" href="https://sms.ncov19.us" alt="mobile-sms" id="sms-btn">
           Get Mobile Updates
         </a>
-        <a className="menubar-link" href="#">Vaccine Tracker</a>
-        <a className="menubar-link" href="#">About</a>
+        <a className="menubar-link" href="https://ncov19.us/about">About</a>
+        {/* <a className="menubar-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a> */}
       </nav>
       {/* <div className="mobile">
         <Modal trigger={<img src={burger} alt="menu-trigger" />} basic>

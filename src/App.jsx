@@ -27,69 +27,64 @@ const App = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert("Success, you are now added to the messaging list")
-    // axios
-    //   .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-    //   .then(alert("Thank you for subscribing"))
-    //   .catch(e => {
-    //     console.log("AN ERROR WHILE POSTING TO DATABASE", e)
-    //     alert("Sorry, an error happened on our end, please try again later")
-    //   });
+    console.log('req url', process.env.REACT_APP_API_URL)
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
-
+  console.log(state)
   return (
     <div className="App">
       {/* <Navbar/> */}
       <Header />
-      <main class="cta-section">
-        <div className="cta-wrapper">
-          <div className="img-wrapper">
+      <div className="main-container">
+        <div className="img-wrapper">
             <img src={Phone} alt="phone demo of app" className="phone" />
-          </div>
-          <div className="form-wrapper">
-            <div className="form-container">
-              <div className="form-description">
-              <h2 className="form-description-header">
-                Get tailored COVID-19 updates delivered<br/>straight to mobile
-                </h2>
-              </div>
-              <form onSubmit={handleSubmit}>
-                <label className="form-label">
-                  CELLPHONE<br/>
-                  <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    className="form-input"
-                    placeholder="ex. 555-555-5555"
-                    onChange={handleChange}
-                    pattern="^\d{10}$"
-                    title="Must be 10 digits"
-                    required
-                  />
-                </label>
-                <label className="form-label">
-                  ZIP CODE
-                  <input
-                    id="zip"
-                    type="string"
-                    name="zip"
-                    className="form-input"
-                    placeholder="ex. 90210"
-                    onChange={handleChange}
-                    pattern="[0-9]{5}$"
-                    title="Must be 5 digits"
-                    required
-                  />
-                </label>
-                <div className="btn-wrapper">
-                  <button className="submit-btn">Get Notified</button>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
-      </main>
+        <div className="form-container">
+          <form onSubmit={handleSubmit} className="form">
+            <h2 className="form-description-header">
+              Get tailored COVID-19 updates delivered straight to your phone.
+            </h2>
+            <label className="form-label">Phone Number<br/>
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                className="form-input"
+                placeholder="ex. 555-555-5555"
+                onChange={handleChange}
+                pattern="^\d{10}$"
+                title="Must be 10 digits"
+                required
+              />
+            </label>
+            <label className="form-label">ZIP Code<br />
+              <input
+                id="zip"
+                type="string"
+                name="zip"
+                className="form-input"
+                placeholder="ex. 90210"
+                onChange={handleChange}
+                pattern="[0-9]{5}$"
+                title="Must be 5 digits"
+                required
+              />
+            </label>
+            <div className="btn-wrapper">
+              <button className="submit-btn">Send Update</button>
+            </div>
+            <div className="status-messages">
+            </div>
+          </form>
+        </div>
+      </div>
       <Footer />
     </div>
   );
