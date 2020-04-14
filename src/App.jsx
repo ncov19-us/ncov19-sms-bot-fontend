@@ -42,55 +42,49 @@ const App = () => {
     <div className="App">
       {/* <Navbar/> */}
       <Header />
-      <main className="cta-section">
-        <div className="cta-wrapper">
-          <div className="img-wrapper">
+      <div className="main-container">
+        <div className="img-wrapper">
             <img src={Phone} alt="phone demo of app" className="phone" />
-          </div>
-          <div className="form-wrapper">
-            <div className="form-container">
-              <div className="form-description">
-              <h2 className="form-description-header">
-                Get tailored COVID-19 updates delivered<br/>straight to mobile
-                </h2>
-              </div>
-              <form onSubmit={handleSubmit}>
-                <label className="form-label">
-                  Phone Number<br/>
-                  <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    className="form-input"
-                    placeholder="ex. 555-555-5555"
-                    onChange={handleChange}
-                    pattern="^\d{10}$"
-                    title="Must be 10 digits"
-                    required
-                  />
-                </label>
-                <label className="form-label">
-                  ZIP Code
-                  <input
-                    id="zip"
-                    type="string"
-                    name="zip"
-                    className="form-input"
-                    placeholder="ex. 90210"
-                    onChange={handleChange}
-                    pattern="[0-9]{5}$"
-                    title="Must be 5 digits"
-                    required
-                  />
-                </label>
-                <div className="btn-wrapper">
-                  <button className="submit-btn">Get Notified</button>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
-      </main>
+        <div className="form-container">
+          <form onSubmit={handleSubmit} className="form">
+            <h2 className="form-description-header">
+              Get tailored COVID-19 updates delivered straight to your phone.
+            </h2>
+            <label className="form-label">Phone Number<br/>
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                className="form-input"
+                placeholder="ex. 555-555-5555"
+                onChange={handleChange}
+                pattern="^\d{10}$"
+                title="Must be 10 digits"
+                required
+              />
+            </label>
+            <label className="form-label">ZIP Code<br />
+              <input
+                id="zip"
+                type="string"
+                name="zip"
+                className="form-input"
+                placeholder="ex. 90210"
+                onChange={handleChange}
+                pattern="[0-9]{5}$"
+                title="Must be 5 digits"
+                required
+              />
+            </label>
+            <div className="btn-wrapper">
+              <button className="submit-btn">Send Update</button>
+            </div>
+            <div className="status-messages">
+            </div>
+          </form>
+        </div>
+      </div>
       <Footer />
     </div>
   );

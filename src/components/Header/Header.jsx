@@ -30,8 +30,8 @@ export default function Header() {
         <a className="menubar-link" href="https://sms.ncov19.us" alt="mobile-sms" id="sms-btn">
           Get Mobile Updates
         </a>
-        <a className="menubar-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a>
         <a className="menubar-link" href="https://ncov19.us/about">About</a>
+        {/* <a className="menubar-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a> */}
       </nav>
       {/* <div className="mobile">
         <Modal trigger={<img src={burger} alt="menu-trigger" />} basic>
