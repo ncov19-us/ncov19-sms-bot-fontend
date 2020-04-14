@@ -3,7 +3,7 @@
 $gunmetal: #1f242d;
 
 // Media Breakpoints
-$narrow-desktop: 64rem;
+$narrow-desktop:  "only screen and (max-width: 1152px)"; // 64rem
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
@@ -29,15 +29,29 @@ Media Queries for usage
 	color: #f4f4f4;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	width: 100%;
 	height: 7.5vh;
 
-	.title {
+	// @media #{$narrow-desktop}{
+	// 	display: block;
+	// 	text-align: left;
+	// 	position: relative;
+	// }
 
+	.title {
+		// border: 2px solid red;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding-left: 4.5vh;
+
+		// @media #{$narrow-desktop}{
+		// 	display: inline-block;
+		// 	// position: absolute;
+		// 	// top: 50%;
+		// 	// margin-top: -20px;
+		// }
 
 		.title-link {
 
@@ -47,10 +61,12 @@ Media Queries for usage
 			.title-name {
 				font-size: 3.7vh;
 				font-weight: 800;
+
 				.title-span {
 					font-weight: 3.7vh;
 					font-weight: 500;
 				}
+
 			}
 
 		}
@@ -63,7 +79,7 @@ Media Queries for usage
 		align-items: center;
 		font-weight: 500;
 
-		@media (max-width: $narrow-desktop) {
+		@media #{$narrow-desktop} {
 			display: none;
 		}
 
@@ -93,9 +109,50 @@ Media Queries for usage
 		// }
 	}
 	
-	.mobile {
+	.toggler{
 		display: none;
+
+		@media #{$narrow-desktop}{
+			
+			// border: 2px solid red;
+			margin-right: 8vh;
+			width: 40px;
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+		}
+
+		.toggler-icon{
+			display: none;
+
+			@media #{$narrow-desktop}{
+				display: block;
+				height: 2px;
+				width: 20px;
+				background-color: white;
+				position: relative;
+	
+				&::before,
+				&::after {
+					content: "";
+					background-color: white;
+					display: block;
+					height: 100%;
+					width: 100%;
+					position: absolute;
+					top: -5px;
+				}
+	
+				&::after{
+					top: 5px;
+				}
+
+			}
+		}
 	}
+
 	@media #{$mobile} {
 		.title {
 			font-size: 1.5rem;
@@ -116,57 +173,7 @@ Media Queries for usage
 	}
 }
 
-// Vaccine Dashboard's header info
-.vacine-dash-header {
 
-	background: $gunmetal;
-	color: white;
-	padding: 2% 5%;
-
-	.date {
-
-		display: flex;
-		flex-direction: row;
-
-		.day {
-
-			color: #ffc428;
-
-		}
-
-		.format {
-
-			padding-left: 4px;
-			color: #ababab;
-
-		}
-	}
-	.cards {
-		
-		.card {
-			border: 2px solid #dbbc6c;
-			padding: 2% 3%;
-			border-radius: 4px;
-			
-			p {
-			
-				font-size: 3rem;
-				color: #f4b000;
-
-			}
-			
-			.stats {
-		
-				img {
-				
-					padding-left: 6px;
-
-				}
-
-			}
-		}
-	}
-}
 
 
 
@@ -188,9 +195,10 @@ Media Queries for usage
 		width: 100%;
 		line-height: 1.5;
 
-		@media #{$phablet} {
+		@media #{$narrow-desktop} {
 			padding: 0 1rem;
 			font-size: .91rem;
+			display: none;
 		}
 	}
 

@@ -11,7 +11,7 @@ import Phone from "./assets/mobile_image.png";
 // component imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar"
+import Toggle from "./components/Toggle/Toggle"
 
 const App = () => {
 
@@ -21,9 +21,16 @@ const App = () => {
     phone: ""
   });
 
+
+  const [toggle, setToggle] = useState(false)
+
   const handleChange = event => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
+
+  const handleToggle = () => {
+    setToggle(!toggle)
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -37,11 +44,22 @@ const App = () => {
         console.log(err);
       });
   };
-  console.log(state)
+  
   return (
     <div className="App">
-      {/* <Navbar/> */}
-      <Header />
+      <Header handleToggle={handleToggle}/>
+      
+      {/* Collapse Menu */}
+      <div className="collapse-nav-container" style={{"display": !toggle ? "none": "flex"}}>
+        Menu
+        <nav className="collapse-nav">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Link</a>
+        </nav>
+      </div>
+
+
       <div className="main-container">
         <div className="img-wrapper">
             <img src={Phone} alt="phone demo of app" className="phone" />
