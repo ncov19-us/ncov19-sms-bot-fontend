@@ -28,7 +28,7 @@ $narrow-desktop: 64rem;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    height: 85vh;
+    height: 82.5vh;
     width: 100%;
     max-width: 150rem;
 
@@ -36,7 +36,7 @@ $narrow-desktop: 64rem;
       flex-direction: column;
       justify-content: center;
     }
-    
+
     .img-wrapper {
       display: flex;
       justify-content: flex-end;
@@ -46,19 +46,19 @@ $narrow-desktop: 64rem;
       @media (max-width: $narrow-desktop) {
         display: none;
       }
-      
+
       img {
         height: 100%;
       }
     }
-    
+
     .form-container {
       height: 80%;
       width: 50%;
       display: flex;
       justify-content: flex-start;
       color: white;
-
+    
       @media (max-width: $narrow-desktop) {
         width: 70%;
       }
@@ -72,24 +72,24 @@ $narrow-desktop: 64rem;
         border-radius: $border-radius;
         height: 100%;
         width: 55%;
-
+    
         @media (max-width: $narrow-desktop) {
           width: 100%;
         }
-
+    
         .form-description-header {
           font-weight: 400;
           font-size: 2.9vh;
           width: 80%;  
         }
-  
+    
         .form-label {
           text-align: left;
           height: $form-element-height;
           width: 80%;
           font-size: 2vh;
           font-weight: 400;
-
+    
           .form-input {
             width: 100%;
             height: 100%;
@@ -100,12 +100,12 @@ $narrow-desktop: 64rem;
             font-size: 1.8vh;
           }
         }
-  
-  
+    
+    
         .btn-wrapper {
           height: $form-element-height;
           width: 80%;
-
+    
           .submit-btn {
             background: #F4B000;
             border: none;
@@ -117,8 +117,26 @@ $narrow-desktop: 64rem;
           }
         }
       }
-    }
 
-    
+      .status-container {
+        width: 80%;
+        height: 80%;
+
+        .status {
+          font-weight: 500;
+          font-size: 5vh;
+        }
+
+        .message {
+          margin-top: 3vh;
+          font-size: 2.6vh;
+        }
+
+        .instructions {
+          margin-top: 3vh;
+          font-size: 2.6vh;
+        }
+      }
+    }
   }
 }
