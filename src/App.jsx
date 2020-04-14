@@ -40,7 +40,6 @@ const App = () => {
 
       if(windowSize > 1152 && toggle) {
         setToggle(!toggle)
-        console.log("BREAK")
       }
     }
 
@@ -73,9 +72,10 @@ const App = () => {
         ...status,
         isLoading: false,
         success: true,
-        failure: false
+        failure: false,
       });
     })
+
     .catch((err) => {
       setStatus({
         ...status,
@@ -147,6 +147,7 @@ const App = () => {
           </form>
         </div>
         )}
+
         {/* Form  */}
         {!status.isLoading && !status.success && !status.failure && (
           <div className="form-container">
