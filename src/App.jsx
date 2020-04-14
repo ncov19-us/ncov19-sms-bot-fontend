@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from 'react-loader-spinner'
 
@@ -14,29 +14,52 @@ import Footer from "./components/Footer/Footer";
 import Toggle from "./components/Toggle/Toggle"
 
 const App = () => {
+
   // state to hold the input data before sending it to the backend
   const [state, setState] = useState({
     zip: "",
     phone: "",
   });
 
+  // track network request
   const [status, setStatus] = useState({
     isLoading: false,
     success: false,
     failure: false,
   });
 
-
+  // track open or closed state
   const [toggle, setToggle] = useState(false)
 
+  // Close menu if open and screen resizes to be more than 1152px / 64rem
+  useEffect(() => {
+    
+    function handleResize(){
+
+      const windowSize = window.innerWidth;
+
+      if(windowSize > 1152 && toggle) {
+        setToggle(!toggle)
+        console.log("BREAK")
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  })
+
+  // form tracking
   const handleChange = event => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
-  const handleToggle = () => {
+  // toggle drop down
+  function handleToggle() {
     setToggle(!toggle)
   }
 
+  // form submission
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -62,20 +85,23 @@ const App = () => {
       });
     });
   };
+
   
   return (
     <div className="App">
       <Header handleToggle={handleToggle}/>
       
       {/* Collapse Menu */}
-      <div className="collapse-nav-container" style={{"display": !toggle ? "none": "flex"}}>
-        Menu
-        <nav className="collapse-nav">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Link</a>
-        </nav>
-      </div>
+      
+        <div className="collapse-nav-container" style={{"display": toggle ? "flex": "none"}}>
+          <nav className="collapse-nav">
+            <a className="collapse-nav-link" href="https://sms.ncov19.us" alt="mobile-sms" id="sms-btn">
+              Get Mobile Updates
+            </a>
+            <a className="collapse-nav-link" href="https://ncov19.us/about">About</a>
+            {/* <a className="collapse-nav-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a> */}
+          </nav>
+        </div>
 
 
       <div className="main-container">
