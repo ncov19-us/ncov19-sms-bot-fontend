@@ -4,7 +4,7 @@ import React from "react";
 // github icon'
 import github from  "../../assets/github.png";
 
-import "../Styles.scss";
+import "./Footer.scss";
 
 export default function Footer() {
 	return (

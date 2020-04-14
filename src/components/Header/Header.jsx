@@ -1,10 +1,6 @@
 import React from 'react';
-// burger for menu
-import Toggle from '../Toggle/Toggle'
-
-// import { Modal } from "semantic-ui-react";
-
-import '../Styles.scss';
+// Styles
+import './Header.scss';
 
 /*
 menubar COMPONENT 
@@ -16,8 +12,6 @@ Styling is in pages.scss
 Needed inline styling for Modal 
 */
 
-const aTags = { color: 'white' };
-const navHeight = {height: "30vh"}
 
 export default function Header({ handleToggle }) {
   return (

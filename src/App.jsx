@@ -11,7 +11,6 @@ import Phone from "./assets/mobile_image.png";
 // component imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Toggle from "./components/Toggle/Toggle"
 
 const App = () => {
 
