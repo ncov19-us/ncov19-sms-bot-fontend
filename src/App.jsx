@@ -30,7 +30,7 @@ const App = () => {
   // track open or closed state
   const [toggle, setToggle] = useState(false)
 
-  // Close menu if open and screen resizes to be more than 1152px / 64rem
+  // Close menu if open and screen resizes to be more than 64rem
   useEffect(() => {
     
     function handleResize(){
@@ -125,26 +125,26 @@ const App = () => {
         {/* Form Submission Error */}
         {status.failure && (
           <div className="form-container">
-          <form className="form">
-            <div className="status-container">
-              <h3 className="status">Oops.</h3>
-              <p className="message">Something went wrong on our end.  Please try again later.</p>
-            </div>
-          </form>
-        </div>
+            <form className="form">
+              <div className="status-container">
+                <h3 className="status">Oops.</h3>
+                <p className="message">Something went wrong on our end.  Please try again later.</p>
+              </div>
+            </form>
+          </div>
         )}
       
         {/* Successful Form Submission Message */}
         {status.success && (
           <div className="form-container">
-          <form className="form">
-            <div className="status-container">
-              <h3 className="status">Success!</h3>
-              <p className="message">You should be receiving a message from us any second.</p>
-              <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
-            </div>
-          </form>
-        </div>
+            <form className="form">
+              <div className="status-container">
+                <h3 className="status">Success!</h3>
+                <p className="message">You should be receiving a message from us any second.</p>
+                <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
+              </div>
+            </form>
+          </div>
         )}
 
         {/* Form  */}
