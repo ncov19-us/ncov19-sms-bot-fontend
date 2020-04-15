@@ -11,7 +11,8 @@ $narrow-desktop:  64rem; // 64rem
     background-color: #010915;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 120%;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,6 +54,7 @@ $narrow-desktop:  64rem; // 64rem
   }
   
   .main-container {
+    padding-top: 7.5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
