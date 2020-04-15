@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Loader from 'react-loader-spinner'
 import axios from "axios";
+import Recaptcha from 'react-google-invisible-recaptcha'
 
 function Form(){
 
@@ -133,6 +134,7 @@ function Form(){
               </label>
               <div className="btn-wrapper">
                 <button className="submit-btn">Send Update</button>
+                <Recaptcha/>
               </div>
               <div className="status-messages"></div>
             </form>
