@@ -33,12 +33,12 @@ const App = () => {
 
   // Close menu if open and screen resizes to be more than 1152px / 64rem
   useEffect(() => {
-    
-    function handleResize(){
+
+    function handleResize() {
 
       const windowSize = window.innerWidth;
 
-      if(windowSize > 1152 && toggle) {
+      if (windowSize > 1152 && toggle) {
         setToggle(!toggle)
         console.log("BREAK")
       }
@@ -64,37 +64,38 @@ const App = () => {
     e.preventDefault();
 
     setStatus({ ...status, isLoading: true });
-    
+
     axios
-    .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-    .then((res) => {
-      // setState({ zip: "", phone: "" });
-      setStatus({ 
-        ...status,
-        isLoading: false,
-        success: true,
-        failure: false
+      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+      .then((res) => {
+        // setState({ zip: "", phone: "" });
+        setStatus({
+          ...status,
+          isLoading: false,
+          success: true,
+          failure: false
+        });
+      })
+      .catch((err) => {
+        setStatus({
+          ...status,
+          isLoading: false,
+          success: false,
+          failure: true
+        });
       });
-    })
-    .catch((err) => {
-      setStatus({
-        ...status,
-        isLoading: false,
-        success: false,
-        failure: true
-      });
-    });
   };
 
-  
+
   return (
     <div className="App">
-      <Header handleToggle={handleToggle}/>
-      
+      <Header handleToggle={handleToggle} />
+
       {/* Collapse Menu */}
-      
-      <div className="collapse-nav-container" style={{"display": toggle ? "flex": "none"}}>
+
+      <div className="collapse-nav-container" style={{ "display": toggle ? "flex" : "none" }}>
         <nav className="collapse-nav">
+          <a className="collapse-nav-link" href="https://ncov19.us">Home</a>
           <a className="collapse-nav-link" href="https://sms.ncov19.us" alt="mobile-sms" id="sms-btn">
             Get Mobile Updates
           </a>
@@ -117,35 +118,35 @@ const App = () => {
                 color="#F4B000"
                 height={100}
                 width={100}
-                // timeout={3000}
+              // timeout={3000}
               />
             </form>
           </div>
         )}
-      
+
         {/* Form Submission Error */}
         {status.failure && (
           <div className="form-container">
-          <form className="form">
-            <div className="status-container">
-              <h3 className="status">Oops.</h3>
-              <p className="message">Something went wrong on our end.  Please try again later.</p>
-            </div>
-          </form>
-        </div>
+            <form className="form">
+              <div className="status-container">
+                <h3 className="status">Oops.</h3>
+                <p className="message">Something went wrong on our end.  Please try again later.</p>
+              </div>
+            </form>
+          </div>
         )}
-      
+
         {/* Successful Form Submission Message */}
         {status.success && (
           <div className="form-container">
-          <form className="form">
-            <div className="status-container">
-              <h3 className="status">Success!</h3>
-              <p className="message">You should be receiving a message from us any second.</p>
-              <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
-            </div>
-          </form>
-        </div>
+            <form className="form">
+              <div className="status-container">
+                <h3 className="status">Success!</h3>
+                <p className="message">You should be receiving a message from us any second.</p>
+                <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
+              </div>
+            </form>
+          </div>
         )}
         {/* Form  */}
         {!status.isLoading && !status.success && !status.failure && (
@@ -168,7 +169,7 @@ const App = () => {
                   pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
                   title="Please use a valid 10 digit US phone number ex. 555-555-5555"
                   required
-                  />
+                />
               </label>
               <label className="form-label">
                 ZIP Code
@@ -184,7 +185,7 @@ const App = () => {
                   pattern="[0-9]{5}$"
                   title="Please enter a vlid 5 digit US zipcode"
                   required
-                  />
+                />
               </label>
               <div className="btn-wrapper">
                 <button className="submit-btn">Send Update</button>
