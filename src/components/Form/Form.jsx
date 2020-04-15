@@ -86,7 +86,7 @@ function Form() {
             <div className="status-container">
               <h3 className="status">Success!</h3>
               <p className="message">You should be receiving a message from us any second.</p>
-              <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
+              <p className="instructions">Just reply to our text with another ZIP code to get updates for that area.</p>
             </div>
           </form>
         </div>
@@ -97,7 +97,7 @@ function Form() {
         <div className="form-container">
           <form onSubmit={handleSubmit} className="form">
             <h2 className="form-description-header">
-              No signup required. Get one-time update of COVID-19 sent straight to your phone.
+              No signup required. Get a one-time update of COVID-19 sent straight to your phone.
               </h2>
             <label className="form-label">
               Phone Number
@@ -127,7 +127,7 @@ function Form() {
                 onChange={handleChange}
                 value={state.zip}
                 pattern="[0-9]{5}$"
-                title="Please enter a vlid 5 digit US zipcode"
+                title="Please enter a valid 5 digit US ZIP code ex. 90210"
                 required
               />
             </label>
