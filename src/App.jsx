@@ -11,6 +11,7 @@ import Phone from "./assets/mobile_image.png";
 // component imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import CollapseNav from './components/CollapseNav/CollapseNav'
 
 const App = () => {
 
@@ -91,16 +92,17 @@ const App = () => {
       <Header handleToggle={handleToggle}/>
       
       {/* Collapse Menu */}
+      <CollapseNav toggle={toggle}/>
       
-      <div className="collapse-nav-container" style={{"display": toggle ? "flex": "none"}}>
+      {/* <div className="collapse-nav-container" style={{"display": toggle ? "flex": "none"}}>
         <nav className="collapse-nav">
           <a className="collapse-nav-link" href="https://sms.ncov19.us" alt="mobile-sms" id="sms-btn">
             Get Mobile Updates
           </a>
           <a className="collapse-nav-link" href="https://ncov19.us/about">About</a>
-          {/* <a className="collapse-nav-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a> */}
+          <a className="collapse-nav-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a>
         </nav>
-      </div>
+      </div> */}
 
 
       <div className="main-container">
