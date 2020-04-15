@@ -70,7 +70,7 @@ Media Queries for usage
 
 		#sms-btn {
 			border: 1px solid #f4f4f4;
-			padding: .5rem .9rem;
+			padding: .5rem 1rem;
 			border-radius: .4rem;
 
 			&:hover{
@@ -136,25 +136,24 @@ Media Queries for usage
 			@media (max-width:$narrow-desktop){
 				display: block;
 				height: 2px;
-				width: 20px;
-				background-color: #f4f4f4;
+				width: 25px;
+				background-color: rgba(255, 255, 255, 0.5);
 				position: relative;
 	
 				&::before,
 				&::after {
 					content: "";
-					background-color: #f4f4f4;
+					background-color: rgba(255, 255, 255, 0.5);
 					display: block;
 					height: 100%;
 					width: 100%;
 					position: absolute;
-					top: -5px;
+					top: -6px;
 				}
 	
 				&::after{
-					top: 5px;
+					top: 6px;
 				}
-
 			}
 		}
 }
