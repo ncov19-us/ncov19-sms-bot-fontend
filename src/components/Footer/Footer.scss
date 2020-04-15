@@ -29,8 +29,6 @@ Media Queries for usage
 	align-items: center;
 	padding: 0 3rem;
 	text-align: left;
-	position: absolute;
-	bottom: 0;
 
 	@media (max-width: $narrow-desktop) {
 		flex-direction: column;
