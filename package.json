@@ -10,6 +10,7 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-invisible-recaptcha": "^0.2.11",
     "react-loader-spinner": "^3.1.5",
     "react-scripts": "3.4.1",
     "semantic-ui-react": "^0.88.2"
