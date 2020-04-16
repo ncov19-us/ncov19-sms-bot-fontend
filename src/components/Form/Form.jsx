@@ -44,36 +44,39 @@ function Form(){
   // form submission
   const handleSubmit = async e => {
     e.preventDefault();
-
+    
+    console.log(state)
     setStatus({ ...status, isLoading: true });
 
     // Dev use, uncomment to test a feature that needs a network request
-    // MockRequest(true, 5000)
-    //   .then( _ => {
-    //     setStatus({ ...status, isLoading: false, success: true });
-    //   })
+    MockRequest(true, 5000)
+      .then( _ => {
+        setStatus({ ...status, isLoading: false, success: true });
+      })
   
     
-    axios
-    .post(`${process.env.REACT_APP_API_URL}/sms`, state)
-    .then((res) => {
-      setState({ zip: "", phone: "",  captcha: ""});
-      setStatus({ 
-        ...status,
-        isLoading: false,
-        success: true,
-        failure: false,
-      });
-    })
+    // axios
+    // .post(`${process.env.REACT_APP_API_LOCAL}/test`, state)
+    // .then((res) => {
+    //   console.log(res)
+    //   setState({ zip: "", phone: "",  captcha: ""});
+    //   setStatus({ 
+    //     ...status,
+    //     isLoading: false,
+    //     success: true,
+    //     failure: false,
+    //   });
+    // })
 
-    .catch((err) => {
-      setStatus({
-        ...status,
-        isLoading: false,
-        success: false,
-        failure: true
-      });
-    });
+    // .catch((err) => {
+    //   console.log(err)
+    //   setStatus({
+    //     ...status,
+    //     isLoading: false,
+    //     success: false,
+    //     failure: true
+    //   });
+    // });
   };
 
   return(
@@ -146,7 +149,7 @@ function Form(){
                 <br />
                 <input
                   id="zip"
-                  type="string"
+                  type="number"
                   name="zip"
                   className="form-input"
                   placeholder="ex. 90210"
