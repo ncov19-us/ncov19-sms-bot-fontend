@@ -44,7 +44,7 @@ function Form() {
   // form submission
   const handleSubmit = async e => {
     e.preventDefault();
-
+    
     setStatus({ ...status, isLoading: true });
 
     axios
@@ -121,32 +121,32 @@ function Form() {
             <label className="form-label">
               Phone Number
                 <br />
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                className="form-input"
-                placeholder="ex. 555-555-5555"
-                onChange={handleChange}
-                value={state.phone}
-                pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
-                title="Please use a valid 10 digit US phone number ex. 555-555-5555"
-                required
-              />
-            </label>
-            <label className="form-label">
-              ZIP Code
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  className="form-input"
+                  placeholder="ex. 555-555-5555"
+                  onChange={handleChange}
+                  value={state.phone}
+                  pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
+                  title="Please enter a valid 10 digit US phone number ex. 555-555-5555"
+                  required
+                  />
+              </label>
+              <label className="form-label">
+                ZIP Code
                 <br />
                 <input
                   id="zip"
-                  type="string"
+                  type="number"
                   name="zip"
                   className="form-input"
                   placeholder="ex. 90210"
                   onChange={handleChange}
                   value={state.zip}
                   pattern="[0-9]{5}$"
-                  title="Please enter a vlid 5 digit US zipcode"
+                  title="Please enter a valid 5 digit US zipcode"
                   required
                   />
               </label>
