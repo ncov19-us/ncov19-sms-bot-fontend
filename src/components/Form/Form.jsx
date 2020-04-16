@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Loader from 'react-loader-spinner'
 import axios from "axios";
+import Captcha from '../Captcha/Captcha';
+// network req utility
+import MockRequest from '../../utility/PromiseRequest'
+
 
 function Form(){
 
@@ -8,6 +12,7 @@ function Form(){
   const [state, setState] = useState({
     zip: "",
     phone: "",
+    captcha:""
   });
 
   // track network request
@@ -15,6 +20,7 @@ function Form(){
     isLoading: false,
     success: false,
     failure: false,
+    captcha: false
   });
 
   // form tracking
@@ -22,32 +28,60 @@ function Form(){
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
+  useEffect(() => {
+    
+    const script = document.createElement('script')
+    script.src = `https://www.google.com/recaptcha/api.js`
+    script.setAttribute("async", "")
+    script.setAttribute("defer", "")
+    document.body.appendChild(script)
+    window.onSubmit = async () => {
+      const token = await window.grecaptcha.getResponse()
+      setState({...state, captcha: token})
+    }
+  })
+
   // form submission
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     setStatus({ ...status, isLoading: true });
-    
-    axios
-    .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-    .then((res) => {
-      // setState({ zip: "", phone: "" });
-      setStatus({ 
-        ...status,
-        isLoading: false,
-        success: true,
-        failure: false,
-      });
-    })
 
-    .catch((err) => {
-      setStatus({
-        ...status,
-        isLoading: false,
-        success: false,
-        failure: true
-      });
-    });
+
+    MockRequest(true, 5000)
+      .then( _ => {
+        setStatus({ ...status, isLoading: false, success: true });
+      })
+    
+
+    const payload = {
+      secret: process.env.REACT_APP_CAPTCHA_KEY,
+      response: state.captcha
+    }
+    
+    axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAPTCHA_VERIFY}&response=${status.captcha}`, {headers: {"Access-Control-Allow-Origin": "*"}})
+      .then(res => console.log(res))
+
+    // axios
+    // .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+    // .then((res) => {
+    //   // setState({ zip: "", phone: "" });
+    //   setStatus({ 
+    //     ...status,
+    //     isLoading: false,
+    //     success: true,
+    //     failure: false,
+    //   });
+    // })
+
+    // .catch((err) => {
+    //   setStatus({
+    //     ...status,
+    //     isLoading: false,
+    //     success: false,
+    //     failure: true
+    //   });
+    // });
   };
 
   return(
@@ -132,7 +166,11 @@ function Form(){
                   />
               </label>
               <div className="btn-wrapper">
-                <button className="submit-btn">Send Update</button>
+                { 
+                  state.captcha !== "" &&
+                  <button id="captcha-submit" className="submit-btn">Send Update</button>
+                }
+                { state.captcha === "" && <Captcha/>}
               </div>
               <div className="status-messages"></div>
             </form>
