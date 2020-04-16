@@ -47,35 +47,6 @@ function Form() {
     
     setStatus({ ...status, isLoading: true });
 
-<<<<<<< HEAD
-    // Dev use, uncomment to test a feature that needs a network request
-    MockRequest(true, 5000)
-      .then( _ => {
-        setStatus({ ...status, isLoading: false, success: true });
-      })
-  
-    
-    axios
-    .post(`${process.env.REACT_APP_API_LOCAL}/test`, state)
-    .then((res) => {
-      console.log(res)
-      setState({ zip: "", phone: "",  captcha: ""});
-      setStatus({ 
-        ...status,
-        isLoading: false,
-        success: true,
-        failure: false,
-      });
-    })
-
-    .catch((err) => {
-      console.log(err)
-      setStatus({
-        ...status,
-        isLoading: false,
-        success: false,
-        failure: true
-=======
     axios
       .post(`${process.env.REACT_APP_API_URL}/sms`, state)
       .then((res) => {
@@ -95,53 +66,9 @@ function Form() {
           success: false,
           failure: true
         });
->>>>>>> 3046334b586bccc5db19d098f108735ee3ece347
       });
   };
 
-<<<<<<< HEAD
-  return(
-      <React.Fragment>
-        {/* Load Spinner */}
-        {status.isLoading && (
-          <div className="form-container">
-            <form className="form">
-              <Loader
-                type="Oval"
-                color="#F4B000"
-                height={100}
-                width={100}
-                // timeout={3000}
-              />
-            </form>
-          </div>
-        )}
-      
-        {/* Form Submission Error */}
-        {status.failure && (
-          <div className="form-container">
-            <form className="form">
-              <div className="status-container">
-                <h3 className="status">Oops.</h3>
-                <p className="message">Something went wrong on our end.  Please try again later.</p>
-              </div>
-            </form>
-          </div>
-        )}
-      
-        {/* Successful Form Submission Message */}
-        {status.success && (
-          <div className="form-container">
-            <form className="form">
-              <div className="status-container">
-                <h3 className="status">Success!</h3>
-                <p className="message">You should be receiving a message from us any second.</p>
-                <p className="instructions">Just reply to our text with another ZIP code to get updates for that area.</p>
-              </div>
-            </form>
-          </div>
-        )}
-=======
   return (
     <React.Fragment>
       {/* Load Spinner */}
@@ -170,7 +97,6 @@ function Form() {
           </form>
         </div>
       )}
->>>>>>> 3046334b586bccc5db19d098f108735ee3ece347
 
       {/* Successful Form Submission Message */}
       {status.success && (
@@ -195,7 +121,6 @@ function Form() {
             <label className="form-label">
               Phone Number
                 <br />
-<<<<<<< HEAD
                 <input
                   id="phone"
                   type="tel"
@@ -211,23 +136,6 @@ function Form() {
               </label>
               <label className="form-label">
                 ZIP Code
-=======
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                className="form-input"
-                placeholder="ex. 555-555-5555"
-                onChange={handleChange}
-                value={state.phone}
-                pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
-                title="Please use a valid 10 digit US phone number ex. 555-555-5555"
-                required
-              />
-            </label>
-            <label className="form-label">
-              ZIP Code
->>>>>>> 3046334b586bccc5db19d098f108735ee3ece347
                 <br />
                 <input
                   id="zip"
