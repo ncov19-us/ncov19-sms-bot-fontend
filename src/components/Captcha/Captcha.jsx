@@ -23,17 +23,19 @@ function Captcha(){
       }
     }
 
-    window.addEventListener('resize', handleResize)
-    document.addEventListener("readystatechange", () => {
+    function windowComplete(){
       if(document.readyState === "complete"){
         handleResize()
       }
-    })
+    }
+
+    window.addEventListener('resize', handleResize)
+    document.addEventListener("readystatechange", windowComplete)
     
 
     return () => {
       window.removeEventListener('resize', handleResize)
-      document.removeEventListener("readystatechange")
+      document.removeEventListener("readystatechange", windowComplete)
     }
   })
 
