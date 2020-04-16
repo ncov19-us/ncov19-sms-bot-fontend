@@ -45,7 +45,6 @@ function Form(){
   const handleSubmit = async e => {
     e.preventDefault();
     
-    console.log(state)
     setStatus({ ...status, isLoading: true });
 
     // Dev use, uncomment to test a feature that needs a network request
@@ -55,28 +54,28 @@ function Form(){
       })
   
     
-    // axios
-    // .post(`${process.env.REACT_APP_API_LOCAL}/test`, state)
-    // .then((res) => {
-    //   console.log(res)
-    //   setState({ zip: "", phone: "",  captcha: ""});
-    //   setStatus({ 
-    //     ...status,
-    //     isLoading: false,
-    //     success: true,
-    //     failure: false,
-    //   });
-    // })
+    axios
+    .post(`${process.env.REACT_APP_API_LOCAL}/test`, state)
+    .then((res) => {
+      console.log(res)
+      setState({ zip: "", phone: "",  captcha: ""});
+      setStatus({ 
+        ...status,
+        isLoading: false,
+        success: true,
+        failure: false,
+      });
+    })
 
-    // .catch((err) => {
-    //   console.log(err)
-    //   setStatus({
-    //     ...status,
-    //     isLoading: false,
-    //     success: false,
-    //     failure: true
-    //   });
-    // });
+    .catch((err) => {
+      console.log(err)
+      setStatus({
+        ...status,
+        isLoading: false,
+        success: false,
+        failure: true
+      });
+    });
   };
 
   return(
@@ -115,7 +114,7 @@ function Form(){
               <div className="status-container">
                 <h3 className="status">Success!</h3>
                 <p className="message">You should be receiving a message from us any second.</p>
-                <p className="instructions">Just reply to our text with another zip code to get updates for that area.</p>
+                <p className="instructions">Just reply to our text with another ZIP code to get updates for that area.</p>
               </div>
             </form>
           </div>
@@ -140,7 +139,7 @@ function Form(){
                   onChange={handleChange}
                   value={state.phone}
                   pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
-                  title="Please use a valid 10 digit US phone number ex. 555-555-5555"
+                  title="Please enter a valid 10 digit US phone number ex. 555-555-5555"
                   required
                   />
               </label>
@@ -156,7 +155,7 @@ function Form(){
                   onChange={handleChange}
                   value={state.zip}
                   pattern="[0-9]{5}$"
-                  title="Please enter a vlid 5 digit US zipcode"
+                  title="Please enter a valid 5 digit US zipcode"
                   required
                   />
               </label>
