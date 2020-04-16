@@ -47,41 +47,33 @@ function Form(){
 
     setStatus({ ...status, isLoading: true });
 
-
-    MockRequest(true, 5000)
-      .then( _ => {
-        setStatus({ ...status, isLoading: false, success: true });
-      })
+    // Dev use, uncomment to test a feature that needs a network request
+    // MockRequest(true, 5000)
+    //   .then( _ => {
+    //     setStatus({ ...status, isLoading: false, success: true });
+    //   })
+  
     
+    axios
+    .post(`${process.env.REACT_APP_API_URL}/sms`, state)
+    .then((res) => {
+      setState({ zip: "", phone: "",  captcha: ""});
+      setStatus({ 
+        ...status,
+        isLoading: false,
+        success: true,
+        failure: false,
+      });
+    })
 
-    const payload = {
-      secret: process.env.REACT_APP_CAPTCHA_KEY,
-      response: state.captcha
-    }
-    
-    axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_CAPTCHA_VERIFY}&response=${status.captcha}`, {headers: {"Access-Control-Allow-Origin": "*"}})
-      .then(res => console.log(res))
-
-    // axios
-    // .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-    // .then((res) => {
-    //   // setState({ zip: "", phone: "" });
-    //   setStatus({ 
-    //     ...status,
-    //     isLoading: false,
-    //     success: true,
-    //     failure: false,
-    //   });
-    // })
-
-    // .catch((err) => {
-    //   setStatus({
-    //     ...status,
-    //     isLoading: false,
-    //     success: false,
-    //     failure: true
-    //   });
-    // });
+    .catch((err) => {
+      setStatus({
+        ...status,
+        isLoading: false,
+        success: false,
+        failure: true
+      });
+    });
   };
 
   return(
