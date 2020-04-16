@@ -19,3 +19,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 } 
+
+/* captcha logo */
+body > div:nth-child(7) > div,
+body > div:nth-child(6) > div{
+  bottom: 5.5rem !important;
+}
+
+body > div:nth-child(8){
+  /* left: 1022px !important;
+  top: -10000px !important; */
+}

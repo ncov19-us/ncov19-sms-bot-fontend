@@ -33,6 +33,7 @@ $narrow-desktop:  64rem; // 64rem
         color: #f4f4f4;
         // font-weight: 600;
         margin-left: 1.8vh;
+        font-size: 1.8rem;
         
         &:hover{
           color: #F4B000;
@@ -169,4 +170,8 @@ $narrow-desktop:  64rem; // 64rem
       }
     }
   }
+}
+
+.google-captcha{
+  border: 8px solid red !important;
 }

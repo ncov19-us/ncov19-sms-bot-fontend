@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Loader from 'react-loader-spinner'
 import axios from "axios";
+import Captcha from '../Captcha/Captcha';
+// network req utility
+import MockRequest from '../../utility/PromiseRequest'
+
 
 function Form() {
 
@@ -8,6 +12,7 @@ function Form() {
   const [state, setState] = useState({
     zip: "",
     phone: "",
+    captcha:""
   });
 
   // track network request
@@ -15,6 +20,7 @@ function Form() {
     isLoading: false,
     success: false,
     failure: false,
+    captcha: false
   });
 
   // form tracking
@@ -22,14 +28,27 @@ function Form() {
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
+  useEffect(() => {
+    
+    const script = document.createElement('script')
+    script.src = `https://www.google.com/recaptcha/api.js`
+    script.setAttribute("async", "")
+    script.setAttribute("defer", "")
+    document.body.appendChild(script)
+    window.onSubmit = async () => {
+      const token = await window.grecaptcha.getResponse()
+      setState({...state, captcha: token})
+    }
+  })
+
   // form submission
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     setStatus({ ...status, isLoading: true });
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
+      .post(`${process.env.REACT_APP_API_URL}/sms`, state)
       .then((res) => {
         // setState({ zip: "", phone: "" });
         setStatus({
@@ -118,27 +137,31 @@ function Form() {
             <label className="form-label">
               ZIP Code
                 <br />
-              <input
-                id="zip"
-                type="string"
-                name="zip"
-                className="form-input"
-                placeholder="ex. 90210"
-                onChange={handleChange}
-                value={state.zip}
-                pattern="[0-9]{5}$"
-                title="Please enter a valid 5 digit US ZIP code ex. 90210"
-                required
-              />
-            </label>
-            <div className="btn-wrapper">
-              <button className="submit-btn">Send Update</button>
-            </div>
-            <div className="status-messages"></div>
-          </form>
-        </div>
-      )}
-    </React.Fragment>
+                <input
+                  id="zip"
+                  type="string"
+                  name="zip"
+                  className="form-input"
+                  placeholder="ex. 90210"
+                  onChange={handleChange}
+                  value={state.zip}
+                  pattern="[0-9]{5}$"
+                  title="Please enter a vlid 5 digit US zipcode"
+                  required
+                  />
+              </label>
+              <div className="btn-wrapper">
+                { 
+                  state.captcha !== "" &&
+                  <button id="captcha-submit" className="submit-btn">Send Update</button>
+                }
+                { state.captcha === "" && <Captcha/>}
+              </div>
+              <div className="status-messages"></div>
+            </form>
+          </div>
+        )}
+      </React.Fragment>
   )
 }
 
