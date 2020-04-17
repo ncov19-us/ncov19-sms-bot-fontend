@@ -4,7 +4,7 @@ function CollapseNav({ toggle }) {
 
   return (
 
-    <div className="collapse-nav-container" style={{ "display": toggle ? "flex" : "none" }}>
+    <div id="navbar" className={`collapse-nav-container ${toggle ? "slideIn": "slideOut"}`}>
       <nav className="collapse-nav">
         <a className="collapse-nav-link" href="https://covid19-us-staging.herokuapp.com/" alt="mobile-home">
           Home
