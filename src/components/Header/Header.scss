@@ -31,6 +31,8 @@ Media Queries for usage
 	align-items: center;
 	width: 100%;
 	height: 7.5vh;
+	position: relative;
+	z-index: 2;
 
 	.title {
 

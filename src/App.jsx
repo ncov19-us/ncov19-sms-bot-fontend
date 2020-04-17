@@ -39,13 +39,13 @@ const App = () => {
 
   // toggle drop down
   function handleToggle() {
-    const collapseNav = document.querySelector(".collapse-nav-container");
-    collapseNav.addEventListener('click', (e) => {
-      e.preventDefault()
-      collapseNav.classList.remove("fadeInDown")
-      collapseNav.offsetWdith = collapseNav.offsetWdith
-      collapseNav.classList.add("fadeInDown")
-    })
+    // const collapseNav = document.querySelector(".collapse-nav-container");
+    // collapseNav.addEventListener('click', (e) => {
+    //   e.preventDefault()
+    //   collapseNav.classList.remove("fadeInDown")
+    //   collapseNav.offsetWdith = collapseNav.offsetWdith
+    //   collapseNav.classList.add("fadeInDown")
+    // })
     setToggle(!toggle)
   }
 
@@ -55,7 +55,9 @@ const App = () => {
       <Header handleToggle={handleToggle}/>
       
       {/* Collapse Menu */}
-      <CollapseNav toggle={toggle}/>
+      <div className="collapse-container">
+        <CollapseNav toggle={toggle}/>
+      </div>
 
       {/* Main Page Content */}
       <div className="main-container">
