@@ -11,15 +11,13 @@ function Captcha(){
 
       const windowSize = window.innerWidth;
       const captcha = document.querySelector(".g-recaptcha")
+      captcha.style.transform = "scale(0.8)"
+      captcha.style.transformOrigin = "0 0"
 
-      if(windowSize > 539) {
-        captcha.style.transform = "scale(1.0)"
-      }else if(400 < windowSize && windowSize < 539) {
-        captcha.style.transform = "scale(0.77)"
-        captcha.style.transformOrigin = "0 0"
-      } else if (windowSize <= 399){
-        captcha.style.transform = "scale(0.68)"
-        captcha.style.transformOrigin = "0 0"
+      if (400 < windowSize && windowSize <= 500){
+        captcha.style.transform = "scale(0.7)"
+      } else if (windowSize <= 400){
+        captcha.style.transform = "scale(0.53)"
       }
     }
 
