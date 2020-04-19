@@ -3,19 +3,8 @@ $form-element-height: 8%;
 $narrow-desktop:  64rem; // 64rem
 
 .App {
-
+  
   .collapse-nav-container{
-		// border: 2px solid red;
-    background-color: #010915;
-    position: absolute;
-    width: 100%;
-    height: 120%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #f4f4f4; 
-    line-height: 1.5;
-    z-index: 1;
 
     .collapse-nav{
       // border: 2px solid red;
@@ -27,7 +16,7 @@ $narrow-desktop:  64rem; // 64rem
       justify-content: space-between;
       align-items: center;
       font-size:1.8rem;
-
+      z-index: 2;
 
       .collapse-nav-link {
         text-decoration: none;
@@ -53,6 +42,31 @@ $narrow-desktop:  64rem; // 64rem
       }
       
     }
+  }
+
+  // Styles for animation slideIn and Out
+  #navbar {
+    background-color: #010915;
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f4f4f4; 
+    line-height: 1.5;
+    z-index: 1;
+    transform: translateY(0px);
+    transition: transform 500ms ease-in-out;
+    z-index: 1;
+  }
+
+  #navbar.slideIn {
+    transform: translateY(0px);
+  }
+  
+  #navbar.slideOut {
+    transform: translateY(-120%);
   }
   
   .main-container {
@@ -92,7 +106,8 @@ $narrow-desktop:  64rem; // 64rem
       color: #f4f4f4;
     
       @media (max-width: $narrow-desktop) {
-        width: 70%;
+        width: 85%;
+        height: 85%;
       }
       
       form {
@@ -176,3 +191,5 @@ $narrow-desktop:  64rem; // 64rem
 .google-captcha{
   border: 8px solid red !important;
 }
+
+

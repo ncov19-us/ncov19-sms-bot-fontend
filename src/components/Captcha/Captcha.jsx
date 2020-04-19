@@ -1,44 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import "./Captcha.scss"
 
 function Captcha(){
-
-
-
-  // Adjust reCaptcha both on render and also on resize of screen
-  useEffect(() => {
-    
-    function handleResize(){
-
-      const windowSize = window.innerWidth;
-      const captcha = document.querySelector(".g-recaptcha")
-
-      if(windowSize > 539) {
-        captcha.style.transform = "scale(1.0)"
-      }else if(400 < windowSize && windowSize < 539) {
-        captcha.style.transform = "scale(0.77)"
-        captcha.style.transformOrigin = "0 0"
-      } else if (windowSize <= 399){
-        captcha.style.transform = "scale(0.68)"
-        captcha.style.transformOrigin = "0 0"
-      }
-    }
-
-    function windowComplete(){
-      if(document.readyState === "complete"){
-        handleResize()
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    document.addEventListener("readystatechange", windowComplete)
-    
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-      document.removeEventListener("readystatechange", windowComplete)
-    }
-  })
-
 
   return(
     <div 
