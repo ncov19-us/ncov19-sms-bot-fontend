@@ -106,7 +106,8 @@ $narrow-desktop:  64rem; // 64rem
       color: #f4f4f4;
     
       @media (max-width: $narrow-desktop) {
-        width: 70%;
+        width: 85%;
+        height: 85%;
       }
       
       form {
