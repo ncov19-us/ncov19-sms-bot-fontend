@@ -125,9 +125,13 @@ $narrow-desktop:  64rem; // 64rem
         }
     
         .form-description-header {
-          font-weight: 400;
+          font-weight: 600;
           font-size: 2.9vh;
           width: 80%;  
+
+          span {
+            font-weight: 400;
+          }
         }
     
         .form-label {
