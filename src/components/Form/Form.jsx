@@ -116,7 +116,7 @@ function Form() {
         <div className="form-container">
           <form onSubmit={handleSubmit} className="form">
             <h2 className="form-description-header">
-              No signup required. Get a one-time update of COVID-19 sent straight to your phone.
+              Get a one-time COVID-19 update sent straight to your phone.<br/><br/><span>No sign up required.</span>
               </h2>
             <label className="form-label">
               Phone Number
