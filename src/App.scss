@@ -51,6 +51,7 @@ $narrow-desktop:  64rem; // 64rem
     width: 100%;
     height: 120%;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: #f4f4f4; 
     line-height: 1.5;
@@ -81,6 +82,7 @@ $narrow-desktop:  64rem; // 64rem
       flex-direction: column;
       justify-content: center;
     }
+
     .img-wrapper {
       display: flex;
       justify-content: flex-end;
@@ -90,14 +92,6 @@ $narrow-desktop:  64rem; // 64rem
       @media (max-width: $narrow-desktop) {
         display: none;
       }
-    }
-    
-    .form-container {
-      height: 80%;
-      width: 50%;
-      display: flex;
-      justify-content: flex-start;
-      color: white;
 
       img {
         height: 100%;
@@ -195,9 +189,5 @@ $narrow-desktop:  64rem; // 64rem
         }
       }
     }
-
-    
   }
 }
-
-
