@@ -22,12 +22,12 @@ const App = () => {
 
   // Close menu if open and screen resizes to be more than 64rem
   useEffect(() => {
-    
-    function handleResize(){
+
+    function handleResize() {
 
       const windowSize = window.innerWidth;
 
-      if(windowSize > 1152 && toggle) {
+      if (windowSize > 1152 && toggle) {
         setToggle(!toggle)
       }
     }
@@ -49,14 +49,14 @@ const App = () => {
     setToggle(!toggle)
   }
 
-  
+
   return (
     <div className="App">
-      <Header handleToggle={handleToggle}/>
-      
+      <Header handleToggle={handleToggle} />
+
       {/* Collapse Menu */}
       <div className="collapse-container">
-        <CollapseNav toggle={toggle}/>
+        <CollapseNav toggle={toggle} />
       </div>
 
       {/* Main Page Content */}
@@ -64,7 +64,7 @@ const App = () => {
         <div className="img-wrapper">
           <img src={Phone} alt="phone demo of app" className="phone" />
         </div>
-        <Form/>
+        <Form />
       </div>
       <Footer />
     </div>
