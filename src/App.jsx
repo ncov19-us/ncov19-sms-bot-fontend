@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-// import submitSent from "./utility/submitSend";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import Loader from 'react-loader-spinner'
 
 // styling
 import "./App.scss";
@@ -11,79 +11,60 @@ import Phone from "./assets/mobile_image.png";
 // component imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar"
+import CollapseNav from './components/CollapseNav/CollapseNav'
+import Form from './components/Form/Form'
+import Captcha from "./components/Captcha/Captcha";
 
 const App = () => {
 
-  // state to hold the input data before sending it to the backend
-  const [state, setState] = useState({
-    zip: "",
-    phone: ""
-  });
+  // track open or closed state
+  const [toggle, setToggle] = useState(false)
 
-  const handleChange = event => {
-    setState({ ...state, [event.target.name]: event.target.value });
-  };
+  // Close menu if open and screen resizes to be more than 64rem
+  useEffect(() => {
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log('req url', process.env.REACT_APP_API_URL)
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/sms/web`, state)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-  console.log(state)
+    function handleResize() {
+
+      const windowSize = window.innerWidth;
+
+      if (windowSize > 1152 && toggle) {
+        setToggle(!toggle)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  })
+
+  // toggle drop down
+  function handleToggle() {
+    // const collapseNav = document.querySelector(".collapse-nav-container");
+    // collapseNav.addEventListener('click', (e) => {
+    //   e.preventDefault()
+    //   collapseNav.classList.remove("fadeInDown")
+    //   collapseNav.offsetWdith = collapseNav.offsetWdith
+    //   collapseNav.classList.add("fadeInDown")
+    // })
+    setToggle(!toggle)
+  }
+
+
   return (
     <div className="App">
-      {/* <Navbar/> */}
-      <Header />
+      <Header handleToggle={handleToggle} />
+
+      {/* Collapse Menu */}
+      <div className="collapse-container">
+        <CollapseNav toggle={toggle} />
+      </div>
+
+      {/* Main Page Content */}
       <div className="main-container">
         <div className="img-wrapper">
-            <img src={Phone} alt="phone demo of app" className="phone" />
+          <img src={Phone} alt="phone demo of app" className="phone" />
         </div>
-        <div className="form-container">
-          <form onSubmit={handleSubmit} className="form">
-            <h2 className="form-description-header">
-              Get tailored COVID-19 updates delivered straight to your phone.
-            </h2>
-            <label className="form-label">Phone Number<br/>
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                className="form-input"
-                placeholder="ex. 555-555-5555"
-                onChange={handleChange}
-                pattern="^\d{10}$"
-                title="Must be 10 digits"
-                required
-              />
-            </label>
-            <label className="form-label">ZIP Code<br />
-              <input
-                id="zip"
-                type="string"
-                name="zip"
-                className="form-input"
-                placeholder="ex. 90210"
-                onChange={handleChange}
-                pattern="[0-9]{5}$"
-                title="Must be 5 digits"
-                required
-              />
-            </label>
-            <div className="btn-wrapper">
-              <button className="submit-btn">Send Update</button>
-            </div>
-            <div className="status-messages">
-            </div>
-          </form>
-        </div>
+        <Form />
       </div>
       <Footer />
     </div>

@@ -3,11 +3,7 @@
 $gunmetal: #1f242d;
 
 // Media Breakpoints
-<<<<<<< HEAD
-$narrow-desktop: 64rem;
-=======
 $narrow-desktop: "64rem";
->>>>>>> staging
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop:"only screen and (min-width: 701px)";
@@ -24,7 +20,6 @@ Media Queries for usage
 	Table 	800px 
 */
 
-
 // Header Menu
 .menubar {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -36,14 +31,19 @@ Media Queries for usage
 	align-items: center;
 	width: 100%;
 	height: 7.5vh;
+	position: relative;
+	z-index: 2;
+	padding-left: 46px;
+
+	@media (max-width: $narrow-desktop) {
+		padding: 0 24px;
+	}
 
 	.title {
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding-left: 4.5vh;
-
 		.title-link {
 
 			color: #f4f4f4;
@@ -51,17 +51,10 @@ Media Queries for usage
 
 			.title-name {
 				font-size: 3.7vh;
-<<<<<<< HEAD
-				font-weight: 800;
-				.title-span {
-					font-weight: 3.7vh;
-					font-weight: 500;
-=======
 				font-weight: 700;
 				.title-span {
 					font-weight: 3.7vh;
 					font-weight: 350;
->>>>>>> staging
 				}
 			}
 
@@ -74,25 +67,16 @@ Media Queries for usage
 		padding-right: 8vh;
 		align-items: center;
 		font-weight: 500;
-<<<<<<< HEAD
-=======
 		font-size: 2.1vh;
->>>>>>> staging
 
 		@media (max-width: $narrow-desktop) {
 			display: none;
 		}
 
 		#sms-btn {
-<<<<<<< HEAD
-			border: 0.08rem solid white;
-			padding: .8vh 1.6vh;
-			border-radius: .5rem;
-=======
 			border: 1px solid #f4f4f4;
-			padding: .5rem .9rem;
+			padding: .5rem 1rem;
 			border-radius: .4rem;
->>>>>>> staging
 
 			&:hover{
 				border-color: #F4B000;
@@ -101,15 +85,9 @@ Media Queries for usage
 
 		.menubar-link {
 			text-decoration: none;
-			color: #ffffff;
-<<<<<<< HEAD
-			font-size: 2.1vh;
-			font-weight: 600;
-			margin-left: 3vh;
-=======
+			color: #f4f4f4;
 			font-weight: 425;
 			margin-left: 1.8vh;
->>>>>>> staging
 			
 			&:hover{
 				color: #F4B000;
@@ -148,8 +126,8 @@ Media Queries for usage
 		@media (max-width:$narrow-desktop){
 			
 			// border: 2px solid red;
-			margin-right: 4.5vh;
-			width: 40px;
+			// margin-right: 4.5vh;
+			// width: 40px;
 			height: 40px;
 			display: flex;
 			justify-content: center;
@@ -163,25 +141,24 @@ Media Queries for usage
 			@media (max-width:$narrow-desktop){
 				display: block;
 				height: 2px;
-				width: 20px;
-				background-color: #f4f4f4;
+				width: 25px;
+				background-color: rgba(255, 255, 255, 0.5);
 				position: relative;
 	
 				&::before,
 				&::after {
 					content: "";
-					background-color: #f4f4f4;
+					background-color: rgba(255, 255, 255, 0.5);
 					display: block;
 					height: 100%;
 					width: 100%;
 					position: absolute;
-					top: -5px;
+					top: -6px;
 				}
 	
 				&::after{
-					top: 5px;
+					top: 6px;
 				}
-
 			}
 		}
 }
@@ -201,82 +178,6 @@ Media Queries for usage
 				filter: invert(100%);
 				background: #f4f4f4;
 				width: 40px;
-			}
-		}
-	}
-}
-
-
-
-
-
-
-
-// foot
-.foot {
-	background: #010915;
-	color: #bdbdbd;
-<<<<<<< HEAD
-	height: 7.5vh;
-=======
->>>>>>> staging
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 3rem;
-	text-align: left;
-
-	@media (max-width: $narrow-desktop) {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-	
-	.foot-content {
-		font-weight: 500;
-		font-size: 1.6vh;
-		padding: 2.55vh 0;
-		width: 80%;
-		line-height: 1.5;
-		
-		@media (max-width: $narrow-desktop) {
-			margin-top: 1vh;
-			width: 100%;
-		}
-	}
-	
-	.foot-copyright {
-		// @include flex(flex-end, row);
-		width: 11%;
-		max-width: 13rem;
-		font-size: 2vh;
-		display: flex;
-		font-weight: 400;
-		align-items: center;
-		justify-content: space-between;
-		// border: 2px solid orange;
-		
-		@media (max-width: $narrow-desktop) {
-			// width: 3rem;
-			// min-width: 2.5rem;
-		}
-		
-		p {
-			text-align: center;
-			
-			@media (max-width: $narrow-desktop) {
-				text-align: center;
-				margin-bottom: 1rem;
-			}
-		}
-
-		.github-logo {
-			margin-right: 1rem;
-			width: 2.1rem;
-			height: 2.1rem;
-
-			@media (max-width: $narrow-desktop) {
-				// margin: 0;
-				margin-bottom: 1rem;
 			}
 		}
 	}
