@@ -18,7 +18,7 @@ export default function Header({ handleToggle }) {
 
     <div className="menubar" >
       <div className="title">
-        <a href="https://covid19-us-staging.herokuapp.com/" alt="home page" className="title-link">
+        <a href={process.env.REACT_APP_DASH_URL} alt="home page" className="title-link">
           <h1 className="title-name">COVID-19 <span className="title-span">Tracker</span></h1>
         </a>
       </div>
@@ -26,7 +26,7 @@ export default function Header({ handleToggle }) {
         <a className="menubar-link" href="/" alt="sms page" id="sms-btn">
           Get Mobile Updates
           </a>
-        <a className="menubar-link" alt="about page" href="https://covid19-us-staging.herokuapp.com/about">About</a>
+        <a className="menubar-link" alt="about page" href={`${process.env.REACT_APP_DASH_URL}/about`}>About</a>
         {/* <a className="menubar-link" href="https://vaccine.ncov19.us/">Vaccine Tracker</a> */}
       </nav>
 
@@ -34,6 +34,6 @@ export default function Header({ handleToggle }) {
       <div className="toggler" onClick={handleToggle}>
         <div className="toggler-icon"></div>
       </div>
-    </div>
+    </div >
   );
 }
