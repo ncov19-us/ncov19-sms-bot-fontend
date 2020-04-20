@@ -156,6 +156,7 @@ $narrow-desktop:  64rem; // 64rem
         .btn-wrapper {
           height: $form-element-height;
           width: 80%;
+          margin-top: 5%;
     
           .submit-btn {
             background: #F4B000;
@@ -189,5 +190,13 @@ $narrow-desktop:  64rem; // 64rem
         }
       }
     }
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
   }
 }
