@@ -19,8 +19,6 @@ An SMS bot front end for easily getting the latest COVID-19 updates for your are
 
 ### Version 1
 
-### Version 1
-
 [<img src="https://github.com/favicon.ico" width="20"> ](https://github.com/AceMouty)    [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="20"> ](https://www.linkedin.com/in/acemouty/)    [<img src="https://twitter.com/favicon.ico" width="20">](https://twitter.com/AceMouty)    **[Kyle Guerrero](https://github.com/AceMouty)**    |    Maintainer | Core Dev
 
 ### Beta 
