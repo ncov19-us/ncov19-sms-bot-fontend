@@ -12,7 +12,7 @@ function Form() {
   const [state, setState] = useState({
     zip: "",
     phone: "",
-    captcha:""
+    captcha: ""
   });
 
   // track network request
@@ -29,7 +29,7 @@ function Form() {
   };
 
   useEffect(() => {
-    
+
     const script = document.createElement('script')
     script.src = `https://www.google.com/recaptcha/api.js`
     script.setAttribute("async", "")
@@ -37,14 +37,14 @@ function Form() {
     document.body.appendChild(script)
     window.onSubmit = async () => {
       const token = await window.grecaptcha.getResponse()
-      setState({...state, captcha: token})
+      setState({ ...state, captcha: token })
     }
   })
 
   // form submission
   const handleSubmit = async e => {
     e.preventDefault();
-    
+
     setStatus({ ...status, isLoading: true });
 
     axios
@@ -116,52 +116,58 @@ function Form() {
         <div className="form-container">
           <form onSubmit={handleSubmit} className="form">
             <h2 className="form-description-header">
-              Get a one-time COVID-19 update sent straight to your phone.<br/><br/><span>No sign up required.</span>
-              </h2>
-            <label className="form-label">
+              Get a COVID-19 SMS update for any U.S. ZIP code.
+            </h2>
+            <h4 className="form-description-subheading">
+              No subscription required.
+            </h4>
+
+            <label className="form-label form-label-phone">
               Phone Number
                 <br />
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  className="form-input"
-                  placeholder="ex. 555-555-5555"
-                  onChange={handleChange}
-                  value={state.phone}
-                  pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
-                  title="Please enter a valid 10 digit US phone number ex. 555-555-5555"
-                  required
-                  />
-              </label>
-              <label className="form-label">
-                ZIP Code
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                className="form-input"
+                placeholder="ex. 555-555-5555"
+                onChange={handleChange}
+                value={state.phone}
+                pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
+                title="Please enter a valid 10 digit US phone number ex. 555-555-5555"
+                required
+              />
+            </label>
+            <label className="form-label form-label-zip">
+              ZIP Code
                 <br />
-                <input
-                  id="zip"
-                  type="number"
-                  name="zip"
-                  className="form-input"
-                  placeholder="ex. 90210"
-                  onChange={handleChange}
-                  value={state.zip}
-                  pattern="[0-9]{5}$"
-                  title="Please enter a valid 5 digit US zipcode"
-                  required
-                  />
-              </label>
-              <div className="btn-wrapper">
-                { 
-                  state.captcha !== "" &&
-                  <button id="captcha-submit" className="submit-btn">Send Update</button>
-                }
-                { state.captcha === "" && <Captcha/>}
-              </div>
-              <div className="status-messages"></div>
-            </form>
-          </div>
-        )}
-      </React.Fragment>
+              <input
+                id="zip"
+                type="number"
+                name="zip"
+                className="form-input"
+                placeholder="ex. 90210"
+                onChange={handleChange}
+                value={state.zip}
+                pattern="[0-9]{5}$"
+                title="Please enter a valid 5 digit US zipcode"
+                required
+              />
+            </label>
+            <div className="btn-wrapper">
+              {
+                state.captcha !== "" &&
+                <button id="captcha-submit" className="submit-btn">Send Update</button>
+              }
+              {state.captcha === "" && <Captcha />}
+            </div>
+            <div className="status-messages"></div>
+
+
+          </form>
+        </div>
+      )}
+    </React.Fragment>
   )
 }
 
