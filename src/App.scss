@@ -130,10 +130,13 @@ $narrow-desktop:  64rem; // 64rem
           font-size: 2.9vh;
           width: 80%;  
 
-          span {
-            font-weight: 400;
-            font-size: 2vh;
-          }
+        }
+
+        .form-description-subheading{
+          font-weight: 400;
+          font-size: 2vh;
+          width: 80%;  
+          margin-top: -8%;
         }
     
         .form-label {
@@ -153,12 +156,14 @@ $narrow-desktop:  64rem; // 64rem
             font-size: 1.8vh;
           }
         }
-    
-    
+
+        .form-label-phone {
+          margin-top: -5%;
+        }
         .btn-wrapper {
           height: $form-element-height;
           width: 80%;
-          margin-top: 5%;
+          margin-top: 3%;
     
           .submit-btn {
             background: #F4B000;
